@@ -1,16 +1,17 @@
 <div class="card my-5">
+  <h3>Ajout d'un nouvel utilisateur</h3>
   <div class="card-body">
     <form (ngSubmit)="onSubmit()" #playerForm="ngForm">
 
       <div class="form-group">
-        <label for="firstName">First Name</label>
+        <label for="firstName">Prénom</label>
         <input type="text" [(ngModel)]="player.firstName"
                class="form-control" id="firstName" name="firstName" placeholder="Veuillez indiquer votre prénom"
                required #firstName="ngModel">
       </div>
 
       <div class="form-group">
-        <label for="lastName">last Name</label>
+        <label for="lastName">Nom de famille</label>
         <input type="text" [(ngModel)]="player.lastName"
                class="form-control" id="lastName" name="lastName" placeholder="Veuillez indiquer votre nom de famille"
                required #lastName="ngModel">

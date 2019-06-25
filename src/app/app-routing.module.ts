@@ -6,6 +6,8 @@ import { LoginComponent } from './site/login/login.component';
 import { PlayerListComponent } from './site/player-list/player-list.component';
 import { PlayerFormComponent } from './site/player-form/player-form.component';
 import { PlayerUpdateComponent } from './site/player-update/player-update.component';
+
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component : HomeComponent,canActivate: [AuthGuard]},
