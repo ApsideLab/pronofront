@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { HomeModule } from './site/home/home.module';
 import { PronosticsModule } from './site/pronostics/pronostics.module';
 import { ResultatsModule } from './site/resultats/resultats.module';
@@ -21,9 +22,13 @@ import { PlayerListComponent } from './site/player-list/player-list.component';
 import { PlayerFormComponent } from './site/player-form/player-form.component';
 import { PlayerUpdateComponent } from './site/player-update/player-update.component';
 
+import { CustomMaterialModule } from './site/custom-material/custom-material.module';
+import { ConfirmDialogComponent } from './site/confirm-dialog/confirm-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     MaterialModule,
@@ -33,6 +38,7 @@ import { PlayerUpdateComponent } from './site/player-update/player-update.compon
     AddPlayerModule,
     UpdatePlayerModule,
     SharedModule,
+    MatDialogModule,
     HomeModule,
     PronosticsModule,
     ResultatsModule,
@@ -40,9 +46,11 @@ import { PlayerUpdateComponent } from './site/player-update/player-update.compon
     CompetitionModule,
     ErrorsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CustomMaterialModule
   ],
   providers: [],
+  entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
