@@ -1,5 +1,7 @@
 <div class="card my-5">
   <div class="card-body">
+    <button type="submit" class="btn btn-info" (click)="save()">Ajouter un utilisateur</button>
+    <br>
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
@@ -8,8 +10,7 @@
         <th scope="col">lastName</th>
         <th scope="col">Date</th>
         <th scope="col">Email</th>
-        <th scope="col">Update</th>
-        <th scope="col">Delete</th>
+        <th scope="col">Gestion</th>
       </tr>
       </thead>
       <tbody>
@@ -19,10 +20,10 @@
         <td>{{ player.lastName }}</td>
         <td>{{ player.subscribeDate }}</td>
         <td><a href="mailto:{{ player.email }}">{{ player.mail }}</a></td>
-        <td><button type="submit" class="btn btn-info" (click)="update(player)">Modifier</button></td>
-
-        <!-- <td><button type="cancel" mat-raised-button class="btn btn-danger" (click)="delete(player.id)">Supprimer</button></td> -->
-        <td><button mat-raised-button type="cancel" class="btn btn-danger" (click)="confirmDialog(player.id)">Supprimer</button></td>
+        <td>
+          <button type="submit" class="btn btn-info" (click)="update(player)">Modifier</button>
+          <button mat-raised-button type="cancel" class="btn btn-danger" (click)="confirmDialog(player.id)">Supprimer</button>
+        </td>
       </tr>
       </tbody>
     </table>

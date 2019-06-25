@@ -21,6 +21,7 @@ export class PlayerService {
     public get(id:number): Observable<Player>{
       return this.http.get<Player>(this.playersUrl+id);
     }
+    
     public delete(id:number){
       return this.http.delete(this.playersUrl+id);
     }
@@ -29,13 +30,21 @@ export class PlayerService {
       player.subscribeDate = new Date();
       return this.http.post<Player>(this.playersUrl, player);
     }
+
     public update(player: Player) {
       return this.http.put<Player>(this.playersUrl, player);
     }
+
     public gotoPlayerList() {
       this.router.navigate(['/players']);
     }
+
     public gotoPlayerUpdate(id) {
       this.router.navigate(['/playersUpdate', id]);
     }
+
+    public gotoPlayerSave() {
+      this.router.navigate(['/addplayers']);
+    }
+
 }

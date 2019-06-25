@@ -17,6 +17,10 @@ export class PlayerListComponent implements OnInit {
   update(player : Player) {
     this.playerService.gotoPlayerUpdate(player.id);
   }
+  
+  save() {
+    this.playerService.gotoPlayerSave();
+  }
 
   delete(id:number){
     this.playerService.delete(id).subscribe(result => window.location.reload());
