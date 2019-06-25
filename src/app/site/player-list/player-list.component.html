@@ -6,8 +6,8 @@
         <th scope="col">#</th>
         <th scope="col">firstName</th>
         <th scope="col">lastName</th>
-        <th scope="col">Email</th>
         <th scope="col">Date</th>
+        <th scope="col">Email</th>
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
       </tr>
@@ -19,8 +19,8 @@
         <td>{{ player.lastName }}</td>
         <td>{{ player.subscribeDate }}</td>
         <td><a href="mailto:{{ player.email }}">{{ player.mail }}</a></td>
-        <td><button type="submit" class="btn btn-info" (click)="update(player)">Update</button></td>
-        <td><button type="submit" class="btn btn-info" (click)="delete(player.id)">Delete</button></td>
+        <td><button type="submit" class="btn btn-info" (click)="update(player)">Modifier</button></td>
+        <td><button type="cancel" class="btn btn-danger" (click)="delete(player.id)">Supprimer</button></td>
       </tr>
       </tbody>
     </table>

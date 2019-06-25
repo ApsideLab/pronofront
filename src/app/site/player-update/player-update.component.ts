@@ -25,11 +25,15 @@ export class PlayerUpdateComponent {
     this.playerService.update(this.player).subscribe(result => this.playerService.gotoPlayerList());
   }
 
+  onCancel() {
+    this.playerService.gotoPlayerList();
+  }
+
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.id = +params['id'];
-      this.playerService.get(this.id).subscribe(result =>{
-        this.player = result;
+      this.playerService.get(this.id).subscribe(data =>{
+        this.player = data;
       });
     });
   }
