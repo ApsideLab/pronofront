@@ -1,0 +1,16 @@
+<div class="card my-5">
+  <h3>Modifier un utilisateur</h3>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #actorForm="ngForm">
+      <div class="form-group">
+        <label for="label">Equipe</label>
+        <input type="text" [(ngModel)]="actor.label"
+               class="form-control" id="label" name="label" placeholder="Enter your label"
+               required #label="ngModel">
+      </div>
+
+      <button type="submit" [disabled]="!actorForm.form.valid" class="btn btn-success" (click)="onSubmit()">Valider</button>
+      <button type="cancel" class="btn btn-danger" (click)="onCancel()">Annuler</button>
+    </form>
+  </div>
+</div>

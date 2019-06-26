@@ -1,0 +1,23 @@
+<div class="card my-5">
+  <div class="card-body">
+    <button type="submit" class="btn btn-info" (click)="save()">Ajouter un utilisateur</button>
+    <br>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Equipe</th>
+        <th scope="col">Gestion</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let actor of actors">
+        <td>{{ actor.label }}</td>
+        <td>
+          <button type="submit" class="btn btn-info" (click)="update(actor)">Modifier</button>
+          <button mat-raised-button type="cancel" class="btn btn-danger" (click)="confirmDialog(actor.id)">Supprimer</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

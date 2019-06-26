@@ -22,6 +22,15 @@ import { PlayerListComponent } from './site/player-list/player-list.component';
 import { PlayerFormComponent } from './site/player-form/player-form.component';
 import { PlayerUpdateComponent } from './site/player-update/player-update.component';
 
+
+import { ActorModule } from './site/actor-list/actor-list.module';
+import { AddActorModule } from './site/actor-form/actor-form.module';
+import { UpdateActorModule } from './site/actor-update/actor-update.module';
+
+import { ActorListComponent } from './site/actor-list/actor-list.component';
+import { ActorFormComponent } from './site/actor-form/actor-form.component';
+import { ActorUpdateComponent } from './site/actor-update/actor-update.component';
+
 import { CustomMaterialModule } from './site/custom-material/custom-material.module';
 import { ConfirmDialogComponent } from './site/confirm-dialog/confirm-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -37,6 +46,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     PlayerModule,
     AddPlayerModule,
     UpdatePlayerModule,
+    ActorModule,
+    AddActorModule,
+    UpdateActorModule,
     SharedModule,
     MatDialogModule,
     HomeModule,

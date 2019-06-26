@@ -1,0 +1,15 @@
+<div class="card my-5">
+  <h3>Ajout d'une nouvelle équipe</h3>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #actorForm="ngForm">
+
+      <div class="form-group">
+        <label for="label">Equipe</label>
+        <input type="text" [(ngModel)]="actor.label"
+               class="form-control" id="label" name="label" placeholder="Veuillez indiquer le nom de l'équipe"
+               required #label="ngModel">
+      </div>
+      <button type="submit" [disabled]="!actorForm.form.valid" class="btn btn-info">Valider</button>
+    </form>
+  </div>
+</div>
