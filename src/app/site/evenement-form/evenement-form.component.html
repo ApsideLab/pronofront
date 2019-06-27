@@ -1,0 +1,27 @@
+<div class="card my-5">
+  <h3>Ajout d'une nouvelle équipe</h3>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #evenementForm="ngForm">
+
+      <div class="form-group">
+        <label for="libelle">Equipe</label>
+        <input type="text" [(ngModel)]="evenement.libelle"
+               class="form-control" id="libelle" name="libelle" placeholder="Veuillez indiquer le nom de l'événement"
+               required #libelle="ngModel">
+        <input type="text" [(ngModel)]="evenement.dateEvenement"
+                class="form-control" id="dateEvenement" name="dateEvenement" placeholder="Veuillez indiquer la date de l'événement"
+                required #dateEvenement="ngModel">
+        <input type="text" [(ngModel)]="evenement.dateOuverture"
+                class="form-control" id="dateOuverture" name="dateOuverture" placeholder="Veuillez indiquer la date d'ouverture des pronostics"
+                required #dateOuverture="ngModel">
+        <input type="text" [(ngModel)]="evenement.dateFermeture"
+                class="form-control" id="dateFermeture" name="dateFermeture" placeholder="Veuillez indiquer la date de fermeture des pronostics"
+                required #dateFermeture="ngModel">
+        <input type="text" [(ngModel)]="evenement.coeff"
+                class="form-control" id="coeff" name="coeff" placeholder="Veuillez indiquer le coefficient"
+                required #coeff="ngModel">
+      </div>
+      <button type="submit" [disabled]="!evenementForm.form.valid" class="btn btn-info">Valider</button>
+    </form>
+  </div>
+</div>

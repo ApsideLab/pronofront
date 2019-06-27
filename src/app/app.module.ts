@@ -39,6 +39,15 @@ import { ScaleListComponent } from './site/scale-list/scale-list.component';
 import { ScaleFormComponent } from './site/scale-form/scale-form.component';
 import { ScaleUpdateComponent } from './site/scale-update/scale-update.component';
 
+
+import { EvenementModule } from './site/evenement-list/evenement-list.module';
+import { AddEvenementModule } from './site/evenement-form/evenement-form.module';
+import { UpdateEvenementModule } from './site/evenement-update/evenement-update.module';
+
+import { EvenementListComponent } from './site/evenement-list/evenement-list.component';
+import { EvenementFormComponent } from './site/evenement-form/evenement-form.component';
+import { EvenementUpdateComponent } from './site/evenement-update/evenement-update.component';
+
 import { CustomMaterialModule } from './site/custom-material/custom-material.module';
 import { ConfirmDialogComponent } from './site/confirm-dialog/confirm-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -56,15 +65,23 @@ registerLocaleData(fr);
     MaterialModule,
     BrowserModule,
     LoginModule,
+
     PlayerModule,
     AddPlayerModule,
     UpdatePlayerModule,
+
     ActorModule,
     AddActorModule,
     UpdateActorModule,
+
     ScaleModule,
     AddScaleModule,
     UpdateScaleModule,
+
+    EvenementModule,
+    AddEvenementModule,
+    UpdateEvenementModule,
+
     SharedModule,
     MatDialogModule,
     HomeModule,

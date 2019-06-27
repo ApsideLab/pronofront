@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Evenement } from 'src/app/interface/evenement';
-import { EvenementsService } from 'src/app/services/evenements/evenements.service';
+import { Evenement } from '../../Models/evenement';
+import { EvenementService } from 'src/app/services/evenement/evenement.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,8 +12,8 @@ export class PronosticsComponent implements OnInit {
 
   evts: Array<Evenement> = new Array<Evenement>();
 
-  constructor(private eventService: EvenementsService) { 
-    this.eventService.getAll().subscribe(res => {
+  constructor(private eventService: EvenementService) {
+    this.eventService.findAll().subscribe(res => {
       console.log(res);
       this.evts = res;
   },err=>{
@@ -27,8 +27,8 @@ export class PronosticsComponent implements OnInit {
 
 
 testObs(){
-  
-  
+
+
   let monObservable = new Observable((observer) => {
     let listOfFriends = ["Damien", "Thomas", "Jean-Claude Dusse","Alpha Omega" , "DMX"];
     listOfFriends.forEach((friend: string) => {

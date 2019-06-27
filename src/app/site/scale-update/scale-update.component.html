@@ -8,7 +8,7 @@
             class="form-control" id="label" name="label" placeholder="Veuillez indiquer la date de début le nom du barèmes"
             required #label="ngModel">
 
-        <input type="text" [ngModel]="scale.dateDebutValidite | date : 'short'"
+        <input type="text" [ngModel]="scale.dateDebutValidite"
             class="form-control" id="dateDebutValidite" name="dateDebutValidite" placeholder="Veuillez indiquer la date de début de validité"
             required #dateDebutValidite="ngModel">
 

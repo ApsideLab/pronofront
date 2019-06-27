@@ -1,0 +1,31 @@
+<div class="card my-5">
+  <div class="card-body">
+    <button type="submit" class="btn btn-info" (click)="save()">Ajouter un événement</button>
+    <br>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Date d'event</th>
+        <th scope="col">Date d'ouverture</th>
+        <th scope="col">Date de fermeture</th>
+        <th scope="col">coefficient</th>
+        <th scope="col">gestion</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let evenement of evenements">
+        <td>{{ evenement.libelle }}</td>
+        <td>{{ evenement.dateEvenement }}</td>
+        <td>{{ evenement.dateOuverture }}</td>
+        <td>{{ evenement.dateFermeture }}</td>
+        <td>{{ evenement.coeff }}</td>
+        <td>
+          <button type="submit" class="btn btn-info" (click)="update(evenement)">Modifier</button>
+          <button mat-raised-button type="cancel" class="btn btn-danger" (click)="confirmDialog(evenement.id)">Supprimer</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

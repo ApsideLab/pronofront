@@ -1,7 +1,7 @@
-export interface Evenement {
-    type: string;
-    date: Date;
-    heure: string;
-    // list_actor: Array<Actor>;
-    niveau: string;
-}
+import { Evenement } from './evenement';
+
+describe('Evenement', () => {
+  it('should create an instance', () => {
+    expect(new Evenement()).toBeTruthy();
+  });
+});

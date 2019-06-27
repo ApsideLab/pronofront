@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Evenement } from 'src/app/interface/evenement';
-import { EvenementsService } from 'src/app/services/evenements/evenements.service';
+import { Evenement } from '../../Models/evenement';
+import { EvenementService } from 'src/app/services/evenement/evenement.service';
 
 
 @Component({
@@ -11,8 +11,8 @@ import { EvenementsService } from 'src/app/services/evenements/evenements.servic
 export class HomeComponent implements OnInit {
 
   evts: Array<Evenement> = new Array<Evenement>();
-  constructor(private eventService: EvenementsService) {
-    this.eventService.getAll().subscribe(res => {
+  constructor(private eventService: EvenementService) {
+    this.eventService.findAll().subscribe(res => {
       console.log(res);
       this.evts = res;
     }
