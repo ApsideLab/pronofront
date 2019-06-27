@@ -1,0 +1,44 @@
+<div class="card my-5">
+  <h3>Modifier un utilisateur</h3>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #scaleForm="ngForm">
+      <div class="form-group">
+        <label for="label">Equipe</label>
+        <input type="text" [(ngModel)]="scale.label"
+            class="form-control" id="label" name="label" placeholder="Veuillez indiquer la date de début le nom du barèmes"
+            required #label="ngModel">
+
+        <input type="text" [ngModel]="scale.dateDebutValidite | date : 'short'"
+            class="form-control" id="dateDebutValidite" name="dateDebutValidite" placeholder="Veuillez indiquer la date de début de validité"
+            required #dateDebutValidite="ngModel">
+
+        <input type="text" [(ngModel)]="scale.ptsBonResultat"
+            class="form-control" id="ptsBonResultat" name="ptsBonResultat" placeholder="Veuillez indiquer les points pour un bon résultat"
+            required #ptsBonResultat="ngModel">
+
+        <input type="text" [(ngModel)]="scale.ptsBonusEcartButs"
+            class="form-control" id="ptsBonusEcartButs" name="ptsBonusEcartButs" placeholder="Veuillez indiquer les points bonus pour les écarts de buts"
+            required #ptsBonusEcartButs="ngModel">
+
+        <input type="text" [(ngModel)]="scale.ptsBonusDeuxScoresExacts"
+            class="form-control" id="ptsBonusDeuxScoresExacts" name="ptsBonusDeuxScoresExacts" placeholder="Veuillez indiquer les points bonus pour deux scores exactes"
+            required #ptsBonusDeuxScoresExacts="ngModel">
+
+        <input type="text" [(ngModel)]="scale.ptsBonusUnScoreExactResultatOK"
+            class="form-control" id="ptsBonusUnScoreExactResultatOK" name="ptsBonusUnScoreExactResultatOK" placeholder="Veuillez indiquer les points bonus pour un score exacte ok"
+            required #ptsBonusUnScoreExactResultatOK="ngModel">
+
+        <input type="text" [(ngModel)]="scale.ptsBonusUnScoreExactResultatKO"
+            class="form-control" id="ptsBonusUnScoreExactResultatKO" name="ptsBonusUnScoreExactResultatKO" placeholder="Veuillez indiquer les points bonus pour un score exacte ko"
+            required #ptsBonusUnScoreExactResultatOK="ngModel">
+
+        <input type="text" [ngModel]="scale.dateFinValidite"
+            class="form-control" id="dateFinValidite" name="dateFinValidite" placeholder="Veuillez indiquer la date de fin de validité"
+            required #dateFinValidite="ngModel">
+      </div>
+
+      <button type="submit" [disabled]="!scaleForm.form.valid" class="btn btn-success" (click)="onSubmit()">Valider</button>
+      <button type="cancel" class="btn btn-danger" (click)="onCancel()">Annuler</button>
+    </form>
+  </div>
+</div>

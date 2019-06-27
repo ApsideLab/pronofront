@@ -1,0 +1,37 @@
+<div class="card my-5">
+  <div class="card-body">
+    <button type="submit" class="btn btn-info" (click)="save()">Ajouter un barème</button>
+    <br>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Date de début de validité</th>
+        <th scope="col">Points pour bon résultat</th>
+        <th scope="col">Points bonus pour écart de buts</th>
+        <th scope="col">Points bonus pour deux scores exacts</th>
+        <th scope="col">Points bonus pour un score exact OK</th>
+        <th scope="col">Points bonus pour un score exact KO</th>
+        <th scope="col">Date de fin de validité</th>
+        <th scope="col">Gestion</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let scale of scales">
+        <td>{{ scale.label }}</td>
+        <td>{{ scale.dateDebutValidite | date: 'short'}}</td>
+        <td>{{ scale.ptsBonResultat }}</td>
+        <td>{{ scale.ptsBonusEcartButs }}</td>
+        <td>{{ scale.ptsBonusDeuxScoresExacts }}</td>
+        <td>{{ scale.ptsBonusUnScoreExactResultatOK }}</td>
+        <td>{{ scale.ptsBonusUnScoreExactResultatKO }}</td>
+        <td>{{ scale.dateFinValidite | date: 'short'}}</td>
+        <td>
+          <button type="submit" class="btn btn-info" (click)="update(scale)">Modifier</button>
+          <button mat-raised-button type="cancel" class="btn btn-danger" (click)="confirmDialog(scale.id)">Supprimer</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

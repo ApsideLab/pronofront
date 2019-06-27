@@ -31,9 +31,22 @@ import { ActorListComponent } from './site/actor-list/actor-list.component';
 import { ActorFormComponent } from './site/actor-form/actor-form.component';
 import { ActorUpdateComponent } from './site/actor-update/actor-update.component';
 
+import { ScaleModule } from './site/scale-list/scale-list.module';
+import { AddScaleModule } from './site/scale-form/scale-form.module';
+import { UpdateScaleModule } from './site/scale-update/scale-update.module';
+
+import { ScaleListComponent } from './site/scale-list/scale-list.component';
+import { ScaleFormComponent } from './site/scale-form/scale-form.component';
+import { ScaleUpdateComponent } from './site/scale-update/scale-update.component';
+
 import { CustomMaterialModule } from './site/custom-material/custom-material.module';
 import { ConfirmDialogComponent } from './site/confirm-dialog/confirm-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+
+import { LOCALE_ID } from '@angular/core';
+import fr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(fr);
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +62,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     ActorModule,
     AddActorModule,
     UpdateActorModule,
+    ScaleModule,
+    AddScaleModule,
+    UpdateScaleModule,
     SharedModule,
     MatDialogModule,
     HomeModule,
@@ -61,8 +77,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     BrowserAnimationsModule,
     CustomMaterialModule
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: "fr-CA"}],
   entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

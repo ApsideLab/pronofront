@@ -15,9 +15,7 @@ export class AppComponent {
 
   confirmDialog(): void {
     const message = `Are you sure you want to do this?`;
-
     const dialogData = new ConfirmDialogModel("Confirm Action", message);
-
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: "400px",
       data: dialogData
