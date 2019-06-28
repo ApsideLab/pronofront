@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Evenement } from '../../Models/evenement';
+import { Evenement } from '../../interface/evenement';
 import { EvenementService } from 'src/app/services/evenement/evenement.service';
 
 
