@@ -19,13 +19,13 @@
       <tbody>
       <tr *ngFor="let scale of scales">
         <td>{{ scale.label }}</td>
-         <td>{{ scale.dateDebutValidite}}</td> <!-- Pour avoir les heures française : rajouter à la fin de la ligne | date: 'short'} -->
+         <td>{{ scale.dateDebutValidite | date:'dd/MM/yyyy'}}</td> <!-- Pour avoir les heures française : rajouter à la fin de la ligne | date: 'short'} -->
         <td>{{ scale.ptsBonResultat }}</td>
         <td>{{ scale.ptsBonusEcartButs }}</td>
         <td>{{ scale.ptsBonusDeuxScoresExacts }}</td>
         <td>{{ scale.ptsBonusUnScoreExactResultatOK }}</td>
         <td>{{ scale.ptsBonusUnScoreExactResultatKO }}</td>
-        <td>{{ scale.dateFinValidite}}</td><!-- Pour avoir les heures française : rajouter à la fin de la ligne | date: 'short'} -->
+        <td>{{ scale.dateFinValidite| date:'dd/MM/yyyy'}}</td><!-- Pour avoir les heures française : rajouter à la fin de la ligne | date: 'short'} -->
         <td>
           <button type="submit" class="btn btn-info" (click)="update(scale)">Modifier</button>
           <button mat-raised-button type="cancel" class="btn btn-danger" (click)="confirmDialog(scale.id)">Supprimer</button>
