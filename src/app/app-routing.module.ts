@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: '', component : HomeComponent,canActivate: [AuthGuard]},
   { path: 'players',component: PlayerListComponent },
   { path: 'addplayers',component: PlayerFormComponent },
-  { path: 'playersUpdate/:id',component: PlayerUpdateComponent }
-  //{ path: 'playersUpdate', redirectTo: ['players']}
+  { path: 'playersUpdate/:id',component: PlayerUpdateComponent },
+  { path: 'playersUpdate', redirectTo: ['players']}
 ];
 
 @NgModule({
