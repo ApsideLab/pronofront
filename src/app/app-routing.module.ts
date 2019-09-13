@@ -27,7 +27,7 @@ const routes: Routes = [
 
   { path: 'players',component: PlayerListComponent },
   { path: 'addplayers',component: PlayerFormComponent },
-  {path: 'playersUpdate/:id', component: PlayerUpdateComponent},
+ // {path: 'playersUpdate/:id', component: PlayerUpdateComponent},
 
   { path: 'actors',component: ActorListComponent },
   { path: 'addactors',component: ActorFormComponent },
