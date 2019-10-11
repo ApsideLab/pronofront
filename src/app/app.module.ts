@@ -44,6 +44,9 @@ import { EvenementModule } from './site/evenement-list/evenement-list.module';
 import { AddEvenementModule } from './site/evenement-form/evenement-form.module';
 import { UpdateEvenementModule } from './site/evenement-update/evenement-update.module';
 
+import { CompetitionListComponent } from './site/competition-list/competition-list.component';
+import { AddContestModule } from './site/competition-form/competition-form.module'
+
 import { EvenementListComponent } from './site/evenement-list/evenement-list.component';
 import { EvenementFormComponent } from './site/evenement-form/evenement-form.component';
 import { EvenementUpdateComponent } from './site/evenement-update/evenement-update.component';
@@ -60,6 +63,7 @@ registerLocaleData(fr);
   declarations: [
     AppComponent,
     ConfirmDialogComponent,
+    CompetitionListComponent,
   ],
   imports: [
     MaterialModule,
@@ -81,6 +85,8 @@ registerLocaleData(fr);
     EvenementModule,
     AddEvenementModule,
     UpdateEvenementModule,
+
+    AddContestModule,
 
     SharedModule,
     MatDialogModule,

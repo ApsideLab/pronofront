@@ -1,4 +1,4 @@
-import { Scale } from './scale';
+import { Scale } from '../Models/scale';
 
 describe('Scale', () => {
   it('should create an instance', () => {
