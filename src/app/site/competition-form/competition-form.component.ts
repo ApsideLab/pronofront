@@ -4,7 +4,7 @@ import { CompetitionService } from '../../services/competition/competition.servi
 @Component({
   selector: 'app-competition-form',
   templateUrl: './competition-form.component.html',
-  styleUrls: ['./competition-form.component.sass']
+  styleUrls: ['./competition-form.component.scss']
 })
 export class CompetitionFormComponent implements OnInit {
 
