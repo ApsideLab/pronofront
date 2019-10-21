@@ -3,18 +3,24 @@
     <div class="custom-card-title">
       <h1>Créer une compétition</h1>
     </div>
-    <div class="custom-card-body">
+    <form class="custom-card-body" (ngSubmit)="submit()" #competitionForm="ngForm">
       <div class="custom-card-row">
-        <input type="text" name="contestName" placeholder="Nom de la compétition">
+        <input type="text" name="contestName" placeholder="Nom de la compétition" [(ngModel)]="competition.label" required class="form-control">
       </div>
       <div class="custom-card-row">
-        <input placeholder="Date de début" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" name="contestStartingDate">
-        <input placeholder="Date de fin" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" name="contestEndingDate">
+        <!-- <input placeholder="Date de début" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" name="contestStartingDate" [(ngModel)]="competition.dateDebut"> -->
+        <input type="text" [(ngModel)]="competition.startDate" id="contestStartingDate" name="contestStartingDate" placeholder="Date de début"
+                required class="form-control">
+        <input type="text" [(ngModel)]="competition.endDate" id="contestEndingDate" name="contestEndingDate" placeholder="Date de fin"
+                required class="form-control">
+        <!-- <input placeholder="Date de fin" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" name="contestEndingDate" [(ngModel)]="competition.dateFin"> -->
       </div>
       <div class="custom-card-row">
-        <input type="submit" name="submitBtn" value="Créer" class="material-btn-highlight">
+        <input type="submit" name="submitBtn" value="Créer" class="material-btn-highlight" [disabled]="!competitionForm.form.valid">
         <input type="button" name="cancelBtn" value="Annuler" class="material-btn-cancel" (click)="cancel()">
       </div>
-    </div>
+      <!-- <p *ngIf="competitionForm.get('contestStartingDate').hasError('required')">champ requis</p>
+      <p *ngIf="competitionForm.get('contestStartingDate').hasError('dateVaidator')">date non valide</p> -->
+    </form>
   </div>
 </div>

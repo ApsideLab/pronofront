@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Competition } from '../../Models/competition';
+import { CompetitionService } from '../../services/competition/competition.service';
 
 @Component({
   selector: 'app-competition-list',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompetitionListComponent implements OnInit {
 
-  constructor() { }
+  competitions: Competition[];
+  constructor(private competitionService: CompetitionService) { }
 
   ngOnInit() {
+    this.competitionService.findAll().subscribe(data => {
+      this.competitions = data;
+    });
   }
 
 }

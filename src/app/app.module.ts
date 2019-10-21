@@ -44,8 +44,9 @@ import { EvenementModule } from './site/evenement-list/evenement-list.module';
 import { AddEvenementModule } from './site/evenement-form/evenement-form.module';
 import { UpdateEvenementModule } from './site/evenement-update/evenement-update.module';
 
-import { CompetitionListComponent } from './site/competition-list/competition-list.component';
-import { AddContestModule } from './site/competition-form/competition-form.module'
+import { ContestModule } from './site/competition-list/competition-list.module';
+import { AddContestModule } from './site/competition-form/competition-form.module';
+// import { UpdateContestModule } from './site/competition-update/competition-update.module';
 
 import { EvenementListComponent } from './site/evenement-list/evenement-list.component';
 import { EvenementFormComponent } from './site/evenement-form/evenement-form.component';
@@ -62,8 +63,7 @@ registerLocaleData(fr);
 @NgModule({
   declarations: [
     AppComponent,
-    ConfirmDialogComponent,
-    CompetitionListComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     MaterialModule,
@@ -86,7 +86,9 @@ registerLocaleData(fr);
     AddEvenementModule,
     UpdateEvenementModule,
 
+    ContestModule,
     AddContestModule,
+    // UpdateContestModule,
 
     SharedModule,
     MatDialogModule,
