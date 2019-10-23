@@ -3,35 +3,42 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Actor } from '../../Models/actor';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 
 export class ActorService {
     private actorsUrl: string;
+    private baseUrl = environment.baseUrl;
 
     constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
-      this.actorsUrl = 'http://localhost:8086/pronos/actors/';
+      // this.actorsUrl = 'http://localhost:8086/pronos/actors/';
     }
 
     public findAll(): Observable<Actor[]> {
-      return this.http.get<Actor[]>(this.actorsUrl);
+      let url = this.baseUrl + '/actors/';
+      return this.http.get<Actor[]>(url);
     }
 
     public get(id:number): Observable<Actor>{
-      return this.http.get<Actor>(this.actorsUrl+id);
+      let url = this.baseUrl + '/actors/' + id;
+      return this.http.get<Actor>(url);
     }
 
     public delete(id:number){
-      return this.http.delete(this.actorsUrl+id);
+      let url = this.baseUrl + '/actors/' + id;
+      return this.http.delete(url);
     }
 
     public save(actor: Actor) {
-      return this.http.post<Actor>(this.actorsUrl, actor);
+      let url = this.baseUrl + '/actors/';
+      return this.http.post<Actor>(url, actor);
     }
 
     public update(actor: Actor) {
-      return this.http.put<Actor>(this.actorsUrl, actor);
+      let url = this.baseUrl + '/actors/';
+      return this.http.put<Actor>(url, actor);
     }
 
     public gotoActorList() {

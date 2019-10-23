@@ -3,19 +3,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Competition } from '../../Models/competition';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompetitionService {
   private contestUrl: string;
+  private baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { 
-    this.contestUrl = 'http://localhost:8086/pronos/contests/';
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
+    // this.contestUrl = 'http://localhost:8086/pronos/contests/';
   }
-  
+
   public findAll(): Observable<Competition[]> {
-    return this.http.get<Competition[]>(this.contestUrl);
+    let url = this.baseUrl + '/contests/';
+    return this.http.get<Competition[]>(url);
   }
 
   public addContest() {
@@ -23,11 +26,13 @@ export class CompetitionService {
   }
 
   public get(id:number): Observable<Competition>{
-    return this.http.get<Competition>(this.contestUrl+id);
+    let url = this.baseUrl + '/contests/' + id;
+    return this.http.get<Competition>(url);
   }
 
   public save(contest:Competition) {
-    return this.http.post<Competition>(this.contestUrl, contest)
+    let url = this.baseUrl + '/contests/';
+    return this.http.post<Competition>(url, contest)
   }
 
   public goToContestList() {
