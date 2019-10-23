@@ -8,12 +8,11 @@
         <input type="text" name="contestName" placeholder="Nom de la compétition" [(ngModel)]="competition.label" required class="form-control">
       </div>
       <div class="custom-card-row">
-        <!-- <input placeholder="Date de début" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" name="contestStartingDate" [(ngModel)]="competition.dateDebut"> -->
-        <input type="text" [(ngModel)]="competition.startDate" id="contestStartingDate" name="contestStartingDate" placeholder="Date de début"
+        <input type="datetime-local" [(ngModel)]="competition.startDate" id="contestStartingDate" name="contestStartingDate" placeholder="Date de début"
                 required class="form-control">
-        <input type="text" [(ngModel)]="competition.endDate" id="contestEndingDate" name="contestEndingDate" placeholder="Date de fin"
+        <input type="datetime-local" [(ngModel)]="competition.endDate" id="contestEndingDate" name="contestEndingDate" placeholder="Date de fin"
                 required class="form-control">
-        <!-- <input placeholder="Date de fin" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" name="contestEndingDate" [(ngModel)]="competition.dateFin"> -->
+        
       </div>
       <div class="custom-card-row">
         <input type="submit" name="submitBtn" value="Créer" class="material-btn-highlight" [disabled]="!competitionForm.form.valid">

@@ -8,14 +8,16 @@ import { ActivatedRoute, Router } from '@angular/router';
   providedIn: 'root'
 })
 export class CompetitionService {
+  private contestsUrl: string;
   private contestUrl: string;
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { 
-    this.contestUrl = 'http://localhost:8086/pronos/contests/';
+    this.contestsUrl = 'http://localhost:8086/pronos/contests/';
+    this.contestUrl = 'http://localhost:8086/pronos/contest/';
   }
   
   public findAll(): Observable<Competition[]> {
-    return this.http.get<Competition[]>(this.contestUrl);
+    return this.http.get<Competition[]>(this.contestsUrl);
   }
 
   public addContest() {
@@ -27,7 +29,7 @@ export class CompetitionService {
   }
 
   public save(contest:Competition) {
-    return this.http.post<Competition>(this.contestUrl, contest)
+    return this.http.post<Competition>(this.contestsUrl, contest)
   }
 
   public goToContestList() {

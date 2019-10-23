@@ -22,6 +22,7 @@ import { EvenementUpdateComponent } from './site/evenement-update/evenement-upda
 
 import { CompetitionListComponent } from './site/competition-list/competition-list.component';
 import { CompetitionFormComponent } from './site/competition-form/competition-form.component';
+import { CompetitionComponent } from './site/competition/competition.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,7 @@ const routes: Routes = [
 
   { path: 'contests', component: CompetitionListComponent },
   { path: 'addcontests', component: CompetitionFormComponent },
+  { path: 'contest/:id', component: CompetitionComponent}
 ];
 
 @NgModule({

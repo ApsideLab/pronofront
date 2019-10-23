@@ -58,7 +58,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import { LOCALE_ID } from '@angular/core';
 import fr from '@angular/common/locales/fr';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, DatePipe } from '@angular/common';
 registerLocaleData(fr);
 @NgModule({
   declarations: [
@@ -102,7 +102,7 @@ registerLocaleData(fr);
     BrowserAnimationsModule,
     CustomMaterialModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: "fr-CA"}],
+  providers: [{provide: LOCALE_ID, useValue: "fr-CA", }],
   entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })
