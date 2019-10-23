@@ -2,12 +2,12 @@
   <mat-card-header>
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
-  <mat-card-content>    
+  <mat-card-content>
     <form  [formGroup]="loginForm" class="my-login">
         <div class="bg-danger mt-2 p-2 text-center text-white"
         *ngIf="errorMessage != null">
         {{errorMessage}}
-        </div> 
+        </div>
       <table class="my-login" cellspacing="0">
         <tr>
           <td>
@@ -26,7 +26,7 @@
         </tr>
       </table>
     </form>
-    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
   </mat-card-content>
   <mat-card-actions>
     <button  mat-raised-button (click)="login()">Login</button>
