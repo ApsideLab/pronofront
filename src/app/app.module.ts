@@ -59,6 +59,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { LOCALE_ID } from '@angular/core';
 import fr from '@angular/common/locales/fr';
 import { registerLocaleData, DatePipe } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
 registerLocaleData(fr);
 @NgModule({
   declarations: [
@@ -68,6 +70,7 @@ registerLocaleData(fr);
   imports: [
     MaterialModule,
     BrowserModule,
+    ReactiveFormsModule,
     LoginModule,
 
     PlayerModule,
