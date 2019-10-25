@@ -3,24 +3,23 @@
     <div class="custom-card-title">
       <h1>Créer une compétition</h1>
     </div>
-    <form class="custom-card-body" (ngSubmit)="submit()" #competitionForm="ngForm">
+    <form class="custom-card-body" [formGroup]="competitionForm" (ngSubmit)="submit()">
       <div class="custom-card-row">
-        <input type="text" name="contestName" placeholder="Nom de la compétition" [(ngModel)]="competition.label" required class="form-control">
+        <input type="text" name="contestName" placeholder="Nom de la compétition" formControlName="label" required class="form-control">
       </div>
       <div class="custom-card-row">
-        <!-- <input placeholder="Date de début" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" name="contestStartingDate" [(ngModel)]="competition.dateDebut"> -->
-        <input type="text" [(ngModel)]="competition.startDate" id="contestStartingDate" name="contestStartingDate" placeholder="Date de début"
+        <input type="datetime-local" formControlName="startDate" id="contestStartingDate" name="contestStartingDate" placeholder="Date de début"
                 required class="form-control">
-        <input type="text" [(ngModel)]="competition.endDate" id="contestEndingDate" name="contestEndingDate" placeholder="Date de fin"
+        <input type="datetime-local" formControlName="endDate" id="contestEndingDate" name="contestEndingDate" placeholder="Date de fin"
                 required class="form-control">
-        <!-- <input placeholder="Date de fin" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" name="contestEndingDate" [(ngModel)]="competition.dateFin"> -->
       </div>
-      <div class="custom-card-row">
-        <input type="submit" name="submitBtn" value="Créer" class="material-btn-highlight" [disabled]="!competitionForm.form.valid">
+      <div class="custom-card-row" *ngIf="error != null">
+        <p class="error">{{error}}</p>
+      </div>
+      <div class="custom-card-row button-row">
+        <input type="submit" name="submitBtn" value="Créer" class="material-btn-highlight" [disabled]="!competitionForm.valid">
         <input type="button" name="cancelBtn" value="Annuler" class="material-btn-cancel" (click)="cancel()">
       </div>
-      <!-- <p *ngIf="competitionForm.get('contestStartingDate').hasError('required')">champ requis</p>
-      <p *ngIf="competitionForm.get('contestStartingDate').hasError('dateVaidator')">date non valide</p> -->
     </form>
   </div>
 </div>

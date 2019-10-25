@@ -1,36 +1,16 @@
-<h6 style="color: white"><a routerLink="/">Home</a> > compétitions </h6>
-<div class="container">
-    <div class="row">
-        <div class="col"></div>
-        <div class="col-sm-7 " id="magrid">
-
-            <mat-grid-list cols="2">
-                <mat-grid-tile>
-                    <a routerLink="../pronostics">
-                        <img src="../../../assets/Media/images/ligue1.png" style="height: 150px;width: 150px" class="rounded">
-                        <!-- <p style="color: white">Pronostics</p> -->
-                    </a>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <a routerLink="../pronostics">
-                        <img src="../../../assets/Media/images/coupe-du-monde-trophee-illustration-fc8e87-0@1x.jpeg" style="height: 150px;width: 150px" class="rounded">
-                        <!-- <p style="color: white">Pronostics</p> -->
-                    </a>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <a routerLink="../pronostics">
-                        <img src="../../../assets/Media/images/uefa.png" style="height: 150px;width: 150px" class="rounded">
-                        <!-- <p style="color: white">Pronostics</p> -->
-                    </a>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <a routerLink="../pronostics">
-                        <img src="../../../assets/Media/images/coupeLigue.png" style="height: 150px;width: 150px" class="rounded">
-                        <!-- <p style="color: white">Pronostics</p> -->
-                    </a>
-                </mat-grid-tile>
-            </mat-grid-list>
+<div>
+    <div class="custom-card contest">
+      <div class="custom-card-title">
+        <h1>{{competition.label}}</h1>
+      </div>
+      <form class="custom-card-body" (ngSubmit)="submit()" #competitionForm="ngForm">
+        <div class="custom-card-row">
+          <p><span>Du</span> {{competition.startDate | date:'shortDate'}} à {{ competition.startDate | date:'shortTime' }} <span>au</span> {{competition.endDate | date:'shortDate'}} à {{ competition.endDate | date:'shortTime' }}</p>
         </div>
-        <div class="col"></div>
+        <div class="custom-card-row">
+          <button class="material-btn-highlight">Modifier</button>
+          <button class="material-btn-cancel" (click)="goToList()">Retour</button>
+        </div>
+      </form>
     </div>
-</div>
+  </div>

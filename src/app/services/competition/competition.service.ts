@@ -9,29 +9,28 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class CompetitionService {
-  private contestUrl: string;
   private baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
-    // this.contestUrl = 'http://localhost:8086/pronos/contests/';
   }
 
-  public findAll(): Observable<Competition[]> {
-    let url = this.baseUrl + '/contests/';
-    return this.http.get<Competition[]>(url);
-  }
 
   public addContest() {
     this.router.navigate(['/addcontests']);
   }
 
+  public findAll(): Observable<Competition[]> {
+    let url = this.baseUrl + '/contests';
+    return this.http.get<Competition[]>(url);
+  }
+
   public get(id:number): Observable<Competition>{
-    let url = this.baseUrl + '/contests/' + id;
+    let url = this.baseUrl + '/contest' + id;
     return this.http.get<Competition>(url);
   }
 
   public save(contest:Competition) {
-    let url = this.baseUrl + '/contests/';
+    let url = this.baseUrl + '/contests'
     return this.http.post<Competition>(url, contest)
   }
 
