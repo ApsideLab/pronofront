@@ -1,20 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CompetitionComponent } from './competition.component';
-import { AuthGuard } from 'src/app/services/auth/auth.guard';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 
-const routes: Routes = [
-  { path: 'competitions', canActivate: [AuthGuard], component: CompetitionComponent }
-];
+import { CompetitionListComponent } from '../competition-list/competition-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [CompetitionComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild([
+      {path: 'contest/:id', component: CompetitionComponent},
+      //{path: 'contest', redirectTo:'/contests'},
+      {path:'contests', component: CompetitionListComponent}
+      ])
   ]
 })
 export class CompetitionModule { }

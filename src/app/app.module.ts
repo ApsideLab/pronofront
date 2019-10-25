@@ -44,6 +44,10 @@ import { EvenementModule } from './site/evenement-list/evenement-list.module';
 import { AddEvenementModule } from './site/evenement-form/evenement-form.module';
 import { UpdateEvenementModule } from './site/evenement-update/evenement-update.module';
 
+import { ContestModule } from './site/competition-list/competition-list.module';
+import { AddContestModule } from './site/competition-form/competition-form.module';
+// import { UpdateContestModule } from './site/competition-update/competition-update.module';
+
 import { EvenementListComponent } from './site/evenement-list/evenement-list.component';
 import { EvenementFormComponent } from './site/evenement-form/evenement-form.component';
 import { EvenementUpdateComponent } from './site/evenement-update/evenement-update.component';
@@ -54,16 +58,19 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import { LOCALE_ID } from '@angular/core';
 import fr from '@angular/common/locales/fr';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, DatePipe } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
 registerLocaleData(fr);
 @NgModule({
   declarations: [
     AppComponent,
-    ConfirmDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     MaterialModule,
     BrowserModule,
+    ReactiveFormsModule,
     LoginModule,
 
     PlayerModule,
@@ -82,6 +89,10 @@ registerLocaleData(fr);
     AddEvenementModule,
     UpdateEvenementModule,
 
+    ContestModule,
+    AddContestModule,
+    // UpdateContestModule,
+
     SharedModule,
     MatDialogModule,
     HomeModule,
@@ -94,7 +105,7 @@ registerLocaleData(fr);
     BrowserAnimationsModule,
     CustomMaterialModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: "fr-CA"}],
+  providers: [{provide: LOCALE_ID, useValue: "fr-CA", }],
   entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })

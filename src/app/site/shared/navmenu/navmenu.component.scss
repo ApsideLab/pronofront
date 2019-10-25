@@ -1,6 +1,11 @@
 .nav-item{
     margin: 10px;
 }
+
+#mynav > ul > li > a:hover {
+  color: #33C400!important;
+}
+
 span{
     color: white;
     text-align: center;
@@ -8,7 +13,10 @@ span{
     float:right;
 }
 
+#myprono{
+  margin-top: 1.5%;
+}
 
-  #myprono{
-    margin-top: 1.5%;
-  }
+.bg-dark {
+  background-color: #333333!important;
+}
