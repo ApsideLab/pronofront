@@ -214,3 +214,51 @@ body {
     opacity: 0;
 }
 
+// Card
+
+.custom-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 15px rgba(0,0,0,0.04) ;
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.custom-card-title {
+    background-color: #F8F9FD;
+    padding: 10px 20px;
+}
+
+.custom-card-title h1 {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.custom-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    padding: 30px;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button-row > input:first-child, .button-row > button:first-child {
+    margin-right: 5px;
+}
+
+.button-row > input:last-child, .button-row > button:last-child {
+    margin-left: 5px;
+}
