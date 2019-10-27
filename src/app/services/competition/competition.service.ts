@@ -25,7 +25,7 @@ export class CompetitionService {
   }
 
   public get(id:number): Observable<Competition>{
-    let url = this.baseUrl + '/contest' + id;
+    let url = this.baseUrl + '/contest/' + id;
     return this.http.get<Competition>(url);
   }
 
