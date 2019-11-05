@@ -1,3 +1,25 @@
-<p>
-  competition-update works!
-</p>
+<div>
+  <div class="custom-card contest">
+    <div class="custom-card-title">
+      <h1>Modifier une compétition</h1>
+    </div>
+    <form class="custom-card-body" [formGroup]="competitionForm" (ngSubmit)="submit()">
+      <div class="custom-card-row">
+        <input type="text" name="contestName" placeholder="Nom de la compétition" formControlName="label" required class="form-control" value="{{contest.label}}">
+      </div>
+      <div class="custom-card-row">
+        <input type="datetime-local" formControlName="startDate" id="contestStartingDate" name="contestStartingDate" placeholder="Date de début"
+                required class="form-control" value="{{fixedStartDate}}">
+        <input type="datetime-local" formControlName="endDate" id="contestEndingDate" name="contestEndingDate" placeholder="Date de fin"
+                required class="form-control" value="{{fixedEndDate}}">
+      </div>
+      <div class="custom-card-row" *ngIf="error != null">
+        <p class="error">{{error}}</p>
+      </div>
+      <div class="custom-card-row button-row">
+        <input type="submit" name="submitBtn" value="Valider" class="material-btn-highlight" [disabled]="!competitionForm.valid">
+        <input type="button" name="cancelBtn" value="Annuler" class="material-btn-cancel" (click)="cancel()">
+      </div>
+    </form>
+  </div>
+</div>
