@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Competition } from '../../Models/competition';
 import { CompetitionService } from '../../services/competition/competition.service';
-import { MatSort, MatTableDataSource, MatSortable } from '@angular/material';
+import { MatSort, MatTableDataSource, MatSortable, MatPaginator } from '@angular/material';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -15,6 +15,7 @@ export class CompetitionListComponent implements OnInit {
   dataSource;
   displayedColumns = [];
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   columnNames = [{
     id: "startDate",
@@ -42,6 +43,7 @@ export class CompetitionListComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.contests);
     this.sort.sort(({id: 'startDate', start: 'asc'}) as MatSortable);
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
     for(let i = 0; i < this.dataSource.data.length; i++) {
       this.dataSource.data[i].startDate = this.datepipe.transform(this.dataSource.data[i].startDate, 'dd/MM/yyyy HH:mm');
       this.dataSource.data[i].endDate = this.datepipe.transform(this.dataSource.data[i].endDate, 'dd/MM/yyyy HH:mm');
