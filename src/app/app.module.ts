@@ -60,6 +60,7 @@ import { LOCALE_ID } from '@angular/core';
 import fr from '@angular/common/locales/fr';
 import { registerLocaleData, DatePipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule, MatCardModule, MatProgressSpinnerModule, MatMenuModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSortModule } from '@angular/material';
 
 registerLocaleData(fr);
 @NgModule({
@@ -68,7 +69,19 @@ registerLocaleData(fr);
     ConfirmDialogComponent
   ],
   imports: [
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatMenuModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSortModule,
+    MatTableModule,
     MaterialModule,
+    MatTableModule,
     BrowserModule,
     ReactiveFormsModule,
     LoginModule,
@@ -105,7 +118,7 @@ registerLocaleData(fr);
     BrowserAnimationsModule,
     CustomMaterialModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: "fr-CA", }],
+  providers: [{provide: LOCALE_ID, useValue: "fr-FR", }, DatePipe],
   entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })
