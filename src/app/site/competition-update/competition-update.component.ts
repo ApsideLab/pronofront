@@ -54,7 +54,7 @@ export class CompetitionUpdateComponent implements OnInit {
 
   submit() {
     this.bindToModel();
-    // this.competitionService.save(this.competition).subscribe(result => this.competitionService.goToContestList())
+    console.log(this.contest)
     this.competitionService.update(this.contest).subscribe({
       error: err => this.error = err.error.message,
       complete: () => this.competitionService.goToContestList()
