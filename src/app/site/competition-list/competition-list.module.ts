@@ -4,6 +4,7 @@ import { MaterialModule } from '../material/material.module';
 import { CompetitionListComponent } from './competition-list.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { MatSortModule, MatTableModule } from '@angular/material';
 
 @NgModule({
   declarations: [CompetitionListComponent],
@@ -12,6 +13,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSortModule,
+    MatTableModule,
     RouterModule.forChild([
       { path: 'contests', component: CompetitionListComponent },
       ])
