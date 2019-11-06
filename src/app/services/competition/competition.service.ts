@@ -36,6 +36,10 @@ export class CompetitionService {
     return this.http.put<Competition>(this.contestsUrl, contest);
   }
 
+  public delete(id:number){
+    return this.http.delete(this.contestsUrl+id);
+  }
+
   public goToContestList() {
     this.router.navigate(['/contests'])
   }

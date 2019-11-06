@@ -3,6 +3,8 @@ import { Competition } from 'src/app/Models/competition';
 import { ActivatedRoute } from '@angular/router';
 import { CompetitionService } from '../../services/competition/competition.service';
 import * as moment from 'moment';
+import { ConfirmDialogModel, ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-competition',
@@ -17,7 +19,7 @@ export class CompetitionComponent implements OnInit {
   endDay: String;
   endTime: String;
 
-  constructor(private competitionService: CompetitionService, private route: ActivatedRoute) { 
+  constructor(private competitionService: CompetitionService, private route: ActivatedRoute, public dialog: MatDialog) { 
     this.competition = new Competition();
   }
 
@@ -38,8 +40,24 @@ export class CompetitionComponent implements OnInit {
     this.competitionService.goToContestList();
   }
 
-  deleteContest() {
-    console.log("ok");
+  openDialog() {
+    const message = `Êtes-vous sûr de vouloir supprimer cette compétition ?`;
+    const dialogData = new ConfirmDialogModel("Confirmer l'action", message);
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: dialogData
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if(dialogResult){
+        this.delete(this.competition.id);
+      }
+    });
+  }
+
+  delete(id:number){
+    this.competitionService.delete(id).subscribe(result => window.location.reload());
   }
 
 }

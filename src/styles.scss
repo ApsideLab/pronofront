@@ -415,3 +415,12 @@ mat-row:nth-child(2) mat-cell {
 .mat-row:hover {
     background-color: #e0dbdb;
 }
+
+//style boite de dialogue 
+.mat-dialog-container {
+    background-color: #333333!important;
+}
+
+app-confirm-dialog > div.mat-dialog-actions > button.mat-raised-button.mat-primary {
+    background-color: rgb(54, 202, 3);
+}
