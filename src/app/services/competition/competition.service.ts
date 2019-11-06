@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   providedIn: 'root'
 })
 export class CompetitionService {
+  
   private contestsUrl: string;
   private contestUrl: string;
 
@@ -42,5 +43,9 @@ export class CompetitionService {
 
   public goToHome() {
     this.router.navigate(['/'])
+  }
+
+  goToContestDetails(contestId: number) {
+    this.router.navigate(['contest/'+contestId])
   }
 }

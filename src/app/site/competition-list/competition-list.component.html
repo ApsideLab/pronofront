@@ -8,7 +8,7 @@
         <ng-container matColumnDef="label">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Nom</mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <a href="contest/{{element['id']}}">{{element['label']}}</a>
+            {{element['label']}}
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="{{column.id}}" *ngFor="let column of columnNames">
@@ -24,7 +24,7 @@
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="goToContestDetails(row.id)"></mat-row>
       </mat-table>
       <mat-paginator [pageSizeOptions]="[10, 25, 100]">
 

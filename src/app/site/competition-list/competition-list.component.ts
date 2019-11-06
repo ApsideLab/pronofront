@@ -50,4 +50,8 @@ export class CompetitionListComponent implements OnInit {
     }
   }
 
+  goToContestDetails(contestId: number) {
+    this.competitionService.goToContestDetails(contestId)
+  }
+
 }
