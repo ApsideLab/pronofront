@@ -18,8 +18,8 @@
         <ng-container matColumnDef="admin">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let element">
-              <a href="updateContest/{{element['id']}}" matTooltip="Modifier cette compétition"><mat-icon class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">edit</mat-icon></a>
-              <a href="deleteContest/{{element['id']}}" matTooltip="Supprimer cette compétition"><mat-icon class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">cancel</mat-icon></a>
+              <mat-icon matTooltip="Modifier cette compétition" (click)="goToContestUpdate(element.id); $event.stopPropagation()" class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">edit</mat-icon>
+              <mat-icon matTooltip="Supprimer cette compétition" (click)="openDialog(); $event.stopPropagation()" class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">cancel</mat-icon>
             </mat-cell>
         </ng-container>
 
