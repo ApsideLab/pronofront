@@ -3,12 +3,16 @@
       <div class="custom-card-title">
         <h1>{{competition.label}}</h1>
       </div>
-      <form class="custom-card-body" (ngSubmit)="submit()" #competitionForm="ngForm">
+      <form class="custom-card-body" #competitionForm="ngForm">
         <div class="custom-card-row">
           <p><span>Du</span> {{competition.startDate | date:'shortDate'}} à {{ competition.startDate | date:'shortTime' }} <span>au</span> {{competition.endDate | date:'shortDate'}} à {{ competition.endDate | date:'shortTime' }}</p>
         </div>
         <div class="custom-card-row">
-          <button class="material-btn-highlight">Modifier</button>
+          <p class="error">{{error}}</p>
+        </div>
+        <div class="custom-card-row">
+          <button class="material-btn-highlight" (click)="goToContestUpdate()">Modifier</button>
+          <button class="material-btn-delete" (click)="deleteContest()">Supprimer</button>
           <button class="material-btn-cancel" (click)="goToList()">Retour</button>
         </div>
       </form>

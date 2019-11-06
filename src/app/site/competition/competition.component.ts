@@ -30,8 +30,16 @@ export class CompetitionComponent implements OnInit {
     });
   }
 
+  goToContestUpdate() {
+    this.competitionService.goToContestUpdate(this.competition.id);
+  }
+
   goToList() {
     this.competitionService.goToContestList();
+  }
+
+  deleteContest() {
+    console.log("ok");
   }
 
 }
