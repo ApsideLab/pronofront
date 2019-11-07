@@ -37,7 +37,7 @@ export class CompetitionService {
   }
 
   public delete(id:number){
-    return this.http.delete(this.contestsUrl+id);
+    return this.http.delete(this.contestUrl+id);
   }
 
   public goToContestList() {

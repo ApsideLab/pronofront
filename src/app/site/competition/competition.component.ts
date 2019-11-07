@@ -18,6 +18,7 @@ export class CompetitionComponent implements OnInit {
   startTime: String;
   endDay: String;
   endTime: String;
+  error: any;
 
   constructor(private competitionService: CompetitionService, private route: ActivatedRoute, public dialog: MatDialog) { 
     this.competition = new Competition();
@@ -57,7 +58,10 @@ export class CompetitionComponent implements OnInit {
   }
 
   delete(id:number){
-    this.competitionService.delete(id).subscribe(result => window.location.reload());
+    this.competitionService.delete(id).subscribe({
+      error: err => this.error = err.error.message,
+      complete: () => this.competitionService.goToContestList()
+    })
   }
 
 }

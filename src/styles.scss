@@ -421,6 +421,6 @@ mat-row:nth-child(2) mat-cell {
     background-color: #333333!important;
 }
 
-app-confirm-dialog > div.mat-dialog-actions > button.mat-raised-button.mat-primary {
-    background-color: rgb(54, 202, 3);
+app-confirm-dialog > div.mat-dialog-actions > button.mat-raised-button.mat-primary, app-alert > div.mat-dialog-actions > button {
+    background-color: rgb(54, 202, 3)!important;
 }
