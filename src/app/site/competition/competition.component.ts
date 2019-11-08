@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Competition } from 'src/app/Models/competition';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CompetitionService } from '../../services/competition/competition.service';
 import * as moment from 'moment';
 import { ConfirmDialogModel, ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
@@ -20,7 +20,7 @@ export class CompetitionComponent implements OnInit {
   endTime: String;
   error: any;
 
-  constructor(private competitionService: CompetitionService, private route: ActivatedRoute, public dialog: MatDialog) { 
+  constructor(private competitionService: CompetitionService, private route: ActivatedRoute, public dialog: MatDialog, private router: Router) { 
     this.competition = new Competition();
   }
 
@@ -29,6 +29,10 @@ export class CompetitionComponent implements OnInit {
       this.id = +params['id'];
       this.competitionService.get(this.id).subscribe(data =>{
         this.competition = data;
+      }, error => {
+        if(error.status == 404) {
+          this.router.navigate(['/404']);
+        }
       });
     });
   }
