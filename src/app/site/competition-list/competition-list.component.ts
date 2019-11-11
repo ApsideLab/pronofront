@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Competition } from '../../Models/competition';
 import { CompetitionService } from '../../services/competition/competition.service';
-import { MatSort, MatTableDataSource, MatSortable, MatPaginator } from '@angular/material';
+import { MatSort, MatTableDataSource, MatSortable } from '@angular/material';
 import { DatePipe } from '@angular/common';
 
 @Component({

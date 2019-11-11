@@ -276,15 +276,25 @@ body {
 .mat-cell {
     justify-content: center;
     color: #333333;
-    border-bottom: 0.5px solid #e0dbdb;
+    border-right: 0.5px solid #949499;
+    border-bottom: 0.5px solid #949499;
 }
 
 mat-header-cell {
-    border-top: 0.5px solid #e0dbdb;
+    border-right: 0.5px solid #949499;
+    border-top: 0.5px solid #949499;
+}
+
+mat-header-cell:first-child {
+    border-left: 0.5px solid #949499;
+}
+
+.mat-cell:first-child {
+    border-left: 0.5px solid #949499;
 }
 
 mat-row:nth-child(2) mat-cell {
-    border-top: 0.5px solid #e0dbdb;
+    border-top: 0.5px solid #949499;
 }
 
 .mat-row:nth-child(even){
@@ -297,17 +307,10 @@ mat-row:nth-child(2) mat-cell {
 
 .mat-row {
     border-bottom-width: 0;
-    cursor: pointer;
 }
 
 .mat-table {
     border-collapse:collapse;
 }
 
-.mat-paginator {
-    background-color: #333333;
-}
 
-.mat-row:hover {
-    background-color: #e0dbdb;
-}
