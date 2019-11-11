@@ -61,6 +61,9 @@ import fr from '@angular/common/locales/fr';
 import { registerLocaleData, DatePipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { ToasterModule } from 'angular2-toaster';
+import { ToasterComponentModule, ToasterComponent } from './toaster.component';
+
 registerLocaleData(fr);
 @NgModule({
   declarations: [
@@ -103,9 +106,11 @@ registerLocaleData(fr);
     ErrorsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    ToasterModule.forRoot(),
+    ToasterComponentModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: "fr-CA", }],
+  providers: [{provide: LOCALE_ID, useValue: 'fr-CA', }],
   entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })

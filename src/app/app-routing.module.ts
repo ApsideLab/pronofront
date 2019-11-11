@@ -27,23 +27,22 @@ import { CompetitionComponent } from './site/competition/competition.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component : HomeComponent,canActivate: [AuthGuard]},
+  { path: '', component : HomeComponent, canActivate: [AuthGuard]},
 
-  { path: 'players',component: PlayerListComponent },
-  { path: 'addplayers',component: PlayerFormComponent },
- // {path: 'playersUpdate/:id', component: PlayerUpdateComponent},
+  { path: 'players', component: PlayerListComponent },
+  { path: 'addplayers', component: PlayerFormComponent },
 
-  { path: 'actors',component: ActorListComponent },
-  { path: 'addactors',component: ActorFormComponent },
+  { path: 'actors', component: ActorListComponent },
+  { path: 'addactors', component: ActorFormComponent },
   {path: 'actorsUpdate/:id', component: ActorUpdateComponent},
 
-  { path: 'scales',component: ScaleListComponent },
-  { path: 'addscales',component: ScaleFormComponent },
-  {path: 'scalesUpdate/:id', component:ScaleUpdateComponent},
+  { path: 'scales', component: ScaleListComponent },
+  { path: 'addscales', component: ScaleFormComponent },
+  {path: 'scalesUpdate/:id', component: ScaleUpdateComponent},
 
-  { path: 'evenements',component: EvenementListComponent },
-  { path: 'addevenements',component: EvenementFormComponent },
-  {path: 'evenementsUpdate/:id', component:EvenementUpdateComponent},
+  { path: 'evenements', component: EvenementListComponent },
+  { path: 'addevenements', component: EvenementFormComponent },
+  {path: 'evenementsUpdate/:id', component: EvenementUpdateComponent},
 
   { path: 'contests', component: CompetitionListComponent },
   { path: 'addcontests', component: CompetitionFormComponent },

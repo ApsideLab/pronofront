@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Competition } from '../../Models/competition';
 import { CompetitionService } from '../../services/competition/competition.service';
+import { ToasterConfig, ToasterService, Toast } from 'angular2-toaster';
 
 @Component({
   selector: 'app-competition-list',
@@ -9,13 +10,24 @@ import { CompetitionService } from '../../services/competition/competition.servi
 })
 export class CompetitionListComponent implements OnInit {
 
+  public config: ToasterConfig = new ToasterConfig({
+    animation: 'fade',
+    positionClass: 'toast-bottom-left'
+  });
+
   competitions: Competition[];
-  constructor(private competitionService: CompetitionService) { }
+  constructor(private toasterService: ToasterService, private competitionService: CompetitionService) { }
 
   ngOnInit() {
-    this.competitionService.findAll().subscribe(data => {
-      this.competitions = data;
-    });
+  }
+
+  showError() {
+    const toast: Toast = {
+      type: 'error',
+      title: 'Erreur',
+      body: 'Identifiant ou mot de passe incorrect',
+    };
+    this.toasterService.pop(toast);
   }
 
 }

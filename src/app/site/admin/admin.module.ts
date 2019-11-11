@@ -11,7 +11,7 @@ import { AuthGuard } from 'src/app/services/auth/auth.guard';
     CommonModule,
     MaterialModule,
     RouterModule.forChild([
-      { path: 'admin',canActivate: [AuthGuard], component: AdminComponent }
+      { path: 'admin', canActivate: [AuthGuard], component: AdminComponent }
       ])
   ]
 })

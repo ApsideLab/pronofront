@@ -17,13 +17,13 @@ export class EvenementService {
     public findAll(): Observable<Evenement[]> {
       return this.http.get<Evenement[]>(this.evenementsUrl);
     }
-    
-    public get(id:number): Observable<Evenement>{
-      return this.http.get<Evenement>(this.evenementsUrl+id);
+
+    public get(id: number): Observable<Evenement> {
+      return this.http.get<Evenement>(this.evenementsUrl + id);
     }
 
-    public delete(id:number){
-      return this.http.delete(this.evenementsUrl+id);
+    public delete(id: number){
+      return this.http.delete(this.evenementsUrl + id);
     }
 
     public save(evenement: Evenement) {
@@ -45,5 +45,4 @@ export class EvenementService {
     public gotoEvenementSave() {
       this.router.navigate(['/addevenements']);
     }
-
 }

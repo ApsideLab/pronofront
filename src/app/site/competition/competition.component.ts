@@ -12,18 +12,18 @@ import * as moment from 'moment';
 export class CompetitionComponent implements OnInit {
   id: number;
   competition: Competition;
-  startDay: String;
-  startTime: String;
-  endDay: String;
-  endTime: String;
+  startDay: string;
+  startTime: string;
+  endDay: string;
+  endTime: string;
 
-  constructor(private competitionService: CompetitionService, private route: ActivatedRoute) { 
+  constructor(private competitionService: CompetitionService, private route: ActivatedRoute) {
     this.competition = new Competition();
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = +params['id'];
+      this.id = + params['id'];
       this.competitionService.get(this.id).subscribe(data =>{
         this.competition = data;
       });
@@ -33,5 +33,4 @@ export class CompetitionComponent implements OnInit {
   goToList() {
     this.competitionService.goToContestList();
   }
-
 }
