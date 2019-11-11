@@ -46,7 +46,7 @@ import { UpdateEvenementModule } from './site/evenement-update/evenement-update.
 
 import { ContestModule } from './site/competition-list/competition-list.module';
 import { AddContestModule } from './site/competition-form/competition-form.module';
-// import { UpdateContestModule } from './site/competition-update/competition-update.module';
+import { UpdateContestModule } from './site/competition-update/competition-update.module';
 
 import { EvenementListComponent } from './site/evenement-list/evenement-list.component';
 import { EvenementFormComponent } from './site/evenement-form/evenement-form.component';
@@ -60,15 +60,29 @@ import { LOCALE_ID } from '@angular/core';
 import fr from '@angular/common/locales/fr';
 import { registerLocaleData, DatePipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule, MatCardModule, MatProgressSpinnerModule, MatMenuModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSortModule } from '@angular/material';
+
 
 registerLocaleData(fr);
 @NgModule({
   declarations: [
     AppComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
   ],
   imports: [
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatMenuModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSortModule,
+    MatTableModule,
     MaterialModule,
+    MatTableModule,
     BrowserModule,
     ReactiveFormsModule,
     LoginModule,
@@ -91,7 +105,7 @@ registerLocaleData(fr);
 
     ContestModule,
     AddContestModule,
-    // UpdateContestModule,
+    UpdateContestModule,
 
     SharedModule,
     MatDialogModule,
@@ -105,7 +119,7 @@ registerLocaleData(fr);
     BrowserAnimationsModule,
     CustomMaterialModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: "fr-CA", }],
+  providers: [{provide: LOCALE_ID, useValue: "fr-FR", }, DatePipe],
   entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })

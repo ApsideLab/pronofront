@@ -37,7 +37,6 @@ export class CompetitionFormComponent {
 
   submit() {
     this.bindToModel();
-    // this.competitionService.save(this.competition).subscribe(result => this.competitionService.goToContestList())
     this.competitionService.save(this.competition).subscribe({
       error: err => this.error = err.error.message,
       complete: () => this.competitionService.goToContestList()

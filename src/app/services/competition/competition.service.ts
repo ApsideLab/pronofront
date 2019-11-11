@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   providedIn: 'root'
 })
 export class CompetitionService {
+  
   private contestsUrl: string;
   private contestUrl: string;
 
@@ -32,11 +33,19 @@ export class CompetitionService {
     return this.http.post<Competition>(this.contestsUrl, contest)
   }
 
+  public update(contest:Competition) {
+    return this.http.put<Competition>(this.contestsUrl, contest);
+  }
+
   public goToContestList() {
     this.router.navigate(['/contests'])
   }
 
   public goToHome() {
     this.router.navigate(['/'])
+  }
+
+  goToContestDetails(contestId: number) {
+    this.router.navigate(['contest/'+contestId])
   }
 }

@@ -1,0 +1,30 @@
+.custom-card-body > div:first-child > input {
+    width: 100%
+}
+
+.custom-card-body > div:nth-child(2) > input {
+    width: 50%;
+}
+
+.custom-card-body > div:nth-child(2) > input:first-child {
+    margin-right: 10px;
+}
+
+.custom-card-body > div:nth-child(2) > input:last-child {
+    margin-left: 10px;
+}
+
+.custom-card-body > div > input::-webkit-input-placeholder {
+    font-style: italic;
+    color: #747478;
+}
+
+.custom-card-body > div:first-child, .custom-card-body > div:nth-child(2) {
+    margin-bottom: 20px;
+}
+
+.custom-card-body > div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
