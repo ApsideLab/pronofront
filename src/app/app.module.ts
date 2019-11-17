@@ -65,6 +65,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './site/home/home.module';
 import { LoginModule } from './site/login/login.module';
 
+import { ToasterModule } from 'angular2-toaster';
+import { ToasterComponentModule, ToasterComponent } from './toaster.component';
 
 registerLocaleData(fr);
 @NgModule({
@@ -121,6 +123,8 @@ registerLocaleData(fr);
     AppRoutingModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
+    ToasterModule.forRoot(),
+    ToasterComponentModule,
     HttpClientModule
   ],
   providers: [{provide: LOCALE_ID, useValue: "fr-FR", }, DatePipe],

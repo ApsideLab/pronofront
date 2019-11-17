@@ -3,7 +3,7 @@
       <div class="custom-card-title">
         <h1>{{competition.label}}</h1>
       </div>
-      <form class="custom-card-body" (ngSubmit)="submit()" #competitionForm="ngForm">
+      <form class="custom-card-body" #competitionForm="ngForm">
         <div class="custom-card-row">
           <p><span>Du</span> {{competition.startDate | date:'shortDate'}} à {{ competition.startDate | date:'shortTime' }} <span>au</span> {{competition.endDate | date:'shortDate'}} à {{ competition.endDate | date:'shortTime' }}</p>
         </div>

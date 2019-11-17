@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  environmentName: 'prod',
+  baseUrl: 'https://pronoback.herokuapp.com/pronos'
 };

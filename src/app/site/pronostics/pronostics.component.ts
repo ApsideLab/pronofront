@@ -16,45 +16,26 @@ export class PronosticsComponent implements OnInit {
     this.eventService.findAll().subscribe(res => {
       console.log(res);
       this.evts = res;
-  },err=>{
-      console.log("Erreur de chargement des évènements")
-  }
-  );
-
+    }, err => {
+        console.log('Erreur de chargement des évènements')
+    }
+    );
   }
   ngOnInit() {
   }
 
-
-testObs(){
-
-
-  let monObservable = new Observable((observer) => {
-    let listOfFriends = ["Damien", "Thomas", "Jean-Claude Dusse","Alpha Omega" , "DMX"];
+testObs() {
+  const monObservable = new Observable((observer) => {
+    const listOfFriends = ['Damien', 'Thomas', 'Jean-Claude Dusse','Alpha Omega' , 'DMX'];
     listOfFriends.forEach((friend: string) => {
         observer.next(friend);
     })
     observer.complete();
 });
-
-monObservable.subscribe({
-  next(value) { console.log(value); },
-  complete() { console.log("C'est fini!"); }
-});
-
 }
 
-testtimeOut(){
-
-  setTimeout(function () { console.log(" ****** Salut les copains!  ******") }, 4000);
-
-let listOfFriends = ["Bara", "Abdou", "Fatou"];
-
-listOfFriends.forEach((friend: string) => {
-    console.log(friend);
-});
-
+testtimeOut() {
+  setTimeout(function() { console.log(' ****** Salut les copains!  ******');} , 4000);
+  const listOfFriends = ['Bara', 'Abdou', 'Fatou'];
 }
-
-
 }

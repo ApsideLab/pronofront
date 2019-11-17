@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Competition } from '../../Models/competition';
 import { CompetitionService } from '../../services/competition/competition.service';
+import { ToasterConfig, ToasterService, Toast } from 'angular2-toaster';
 import { MatSort, MatTableDataSource, MatSortable, MatPaginator } from '@angular/material';
 import { DatePipe } from '@angular/common';
 
@@ -16,6 +17,13 @@ export class CompetitionListComponent implements OnInit {
   displayedColumns = [];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  public config: ToasterConfig = new ToasterConfig({
+    animation: 'fade',
+    positionClass: 'toast-bottom-left'
+  });
+  constructor(private toasterService: ToasterService, private competitionService: CompetitionService, public datepipe: DatePipe) {
+    this.dataSource = new MatTableDataSource()
+  }
 
   columnNames = [{
     id: "startDate",
@@ -24,10 +32,6 @@ export class CompetitionListComponent implements OnInit {
     id: "endDate",
     value: "Fin"
   }]
-
-  constructor(private competitionService: CompetitionService, public datepipe: DatePipe) {
-    this.dataSource = new MatTableDataSource();
-  }
 
   ngOnInit() {
     this.competitionService.findAll().subscribe(data => {
@@ -52,6 +56,15 @@ export class CompetitionListComponent implements OnInit {
 
   goToContestDetails(contestId: number) {
     this.competitionService.goToContestDetails(contestId)
+  }
+
+  showError() {
+    const toast: Toast = {
+      type: 'error',
+      title: 'Erreur',
+      body: 'Identifiant ou mot de passe incorrect',
+    };
+    this.toasterService.pop(toast);
   }
 
 }

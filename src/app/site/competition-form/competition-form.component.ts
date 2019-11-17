@@ -17,7 +17,7 @@ export class CompetitionFormComponent {
   competitionForm: FormGroup;
   error: any;
 
-  constructor(private competitionService: CompetitionService, private location: Location, private fb: FormBuilder) { 
+  constructor(private competitionService: CompetitionService, private location: Location, private fb: FormBuilder) {
     this.competition = new Competition();
     this.competitionForm = this.fb.group({
       label: new FormControl(),
@@ -26,7 +26,6 @@ export class CompetitionFormComponent {
     }, {
       validator: validDates('startDate', 'endDate')
     });
-    
   }
 
   private bindToModel(): void {

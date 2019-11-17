@@ -38,8 +38,8 @@ const routes: Routes = [
   { path: 'addplayers',component: PlayerFormComponent },
  // {path: 'playersUpdate/:id', component: PlayerUpdateComponent},
 
-  { path: 'actors',component: ActorListComponent },
-  { path: 'addactors',component: ActorFormComponent },
+  { path: 'actors', component: ActorListComponent },
+  { path: 'addactors', component: ActorFormComponent },
   {path: 'actorsUpdate/:id', component: ActorUpdateComponent},
 
   { path: 'scales', component: ScaleListComponent },
