@@ -16,10 +16,10 @@ import { getFrenchPaginatorIntl } from './french-paginator-intl';
     ReactiveFormsModule,
     MatSortModule,
     MatTableModule,
-    MatPaginatorModule,
-    RouterModule.forChild([
-      { path: 'contests', component: CompetitionListComponent },
-      ])
+    MatPaginatorModule
+    // RouterModule.forChild([
+    //   { path: 'contests', component: CompetitionListComponent },
+    //   ])
   ],
   providers: [
     { provide: MatPaginatorIntl, useValue: getFrenchPaginatorIntl() }

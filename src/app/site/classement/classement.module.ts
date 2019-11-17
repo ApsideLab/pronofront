@@ -17,6 +17,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
 
   ],
-  exports:[CommonModule,ClassementComponent]
+  exports:[CommonModule, ClassementComponent]
 })
 export class ClassementModule { }

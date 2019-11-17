@@ -10,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
-  { path: '', canActivate: [AuthGuard], component: HomeComponent }
+  { path: '', component: HomeComponent }
+  // { path: '', component: HomeComponent }
 ];
 
 @NgModule({

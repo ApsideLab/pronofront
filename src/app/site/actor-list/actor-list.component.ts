@@ -14,7 +14,7 @@ export class ActorListComponent implements OnInit {
   constructor(private actorService: ActorService, public dialog: MatDialog) {
   }
 
-  update(actor : Actor) {
+  update(actor: Actor) {
     this.actorService.gotoActorUpdate(actor.id);
   }
 
@@ -22,21 +22,21 @@ export class ActorListComponent implements OnInit {
     this.actorService.gotoActorSave();
   }
 
-  delete(id:number){
+  delete(id: number){
     this.actorService.delete(id).subscribe(result => window.location.reload());
   }
 
-  confirmDialog(id:number) {
+  confirmDialog(id: number) {
       const message = `Êtes-vous sur de vouloir supprimer cette équipe ?`;
-      const dialogData = new ConfirmDialogModel("Confirmer l'action", message);
+      const dialogData = new ConfirmDialogModel('Confirmer l\'action', message);
 
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-        maxWidth: "400px",
+        maxWidth: '400px',
         data: dialogData
       });
 
       dialogRef.afterClosed().subscribe(dialogResult => {
-        if(dialogResult){
+        if (dialogResult) {
           this.delete(id);
         }
       });

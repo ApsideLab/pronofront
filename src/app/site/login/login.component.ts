@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthLoginInfo } from '../auth/login-info';
+import { TokenStorageService } from '../auth/token-storage.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,49 +11,49 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
-  isSubmitted = false;
-  errorMessage: string;
+  form: any = {};
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
+  private loginInfo: AuthLoginInfo;
 
-  username: string;
-  password: string;
-  role: string;
-
-  constructor(private router: Router,
-    private authService: AuthService,
-    private fb: FormBuilder
-  ) {}
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
-    let titlePattern = '[a-zA-Z0-9]{6,}';
-    this.loginForm = this.fb.group({
-      username: ['', Validators.required, Validators.minLength(6), Validators.pattern(titlePattern)],
-      password: ['', Validators.required]
-    });
-  }
-
-  get f() { return this.loginForm.controls; }
-
-  login() {
-    this.errorMessage=null;
-    this.isSubmitted = true;
-    if (this.loginForm.invalid) {
-      return;
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getAuthorities();
     }
-    this.authService.login(this.loginForm.value);
-    this.router.navigateByUrl('/');
-    this.errorMessage = this.authService.errorMsg;
-  }
-  logout() {
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
   }
 
-  isAuth(): boolean {
-    if (this.authService.isLoggedIn) {
-      alert("is auth :"+this.authService.isLoggedIn)
-      return true;
-    }
-    return false;
+  onSubmit() {
+    console.log(this.form);
+
+    this.loginInfo = new AuthLoginInfo(
+      this.form.username,
+      this.form.password);
+
+    this.authService.attemptAuth(this.loginInfo).subscribe(
+      data => {
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUsername(data.username);
+        this.tokenStorage.saveAuthorities(data.authorities);
+
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.roles = this.tokenStorage.getAuthorities();
+        this.reloadPage();
+      },
+      error => {
+        console.log(error);
+        this.errorMessage = error.error.message;
+        this.isLoginFailed = true;
+      }
+    );
+  }
+
+  reloadPage() {
+    window.location.reload();
   }
 }
