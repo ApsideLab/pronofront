@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CompetitionService } from 'src/app/services/competition/competition.service';
 import { Competition } from 'src/app/Models/competition';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {Location} from '@angular/common';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { validDates } from '../validators/valid-dates.validator';
+import { validDates } from '../helpers/valid-dates.validator';
 
 @Component({
   selector: 'app-competition-update',
@@ -19,7 +19,7 @@ export class CompetitionUpdateComponent implements OnInit {
   competitionForm: FormGroup;
   error: any;
 
-  constructor(private competitionService: CompetitionService, private location: Location, private route: ActivatedRoute, private fb: FormBuilder) { 
+  constructor(private competitionService: CompetitionService, private location: Location, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) { 
     this.contest = new Competition();
     this.contest = new Competition();
     this.competitionForm = this.fb.group({
@@ -47,14 +47,16 @@ export class CompetitionUpdateComponent implements OnInit {
         this.competitionForm.get('label').setValue(this.contest.label);
         this.competitionForm.get('startDate').setValue(this.fixedStartDate);
         this.competitionForm.get('endDate').setValue(this.fixedEndDate);
+      }, error => {
+        if(error.status == 404) {
+          this.router.navigate(['/404']);
+        }
       });
     });
-    console.log(this.competitionForm);
   }
 
   submit() {
     this.bindToModel();
-    console.log(this.contest)
     this.competitionService.update(this.contest).subscribe({
       error: err => this.error = err.error.message,
       complete: () => this.competitionService.goToContestList()

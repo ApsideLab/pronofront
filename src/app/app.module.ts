@@ -61,6 +61,7 @@ import fr from '@angular/common/locales/fr';
 import { registerLocaleData, DatePipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule, MatCardModule, MatProgressSpinnerModule, MatMenuModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSortModule } from '@angular/material';
+import { AlertComponent, AlertModel } from './site/alert/alert.component';
 
 
 registerLocaleData(fr);
@@ -68,6 +69,7 @@ registerLocaleData(fr);
   declarations: [
     AppComponent,
     ConfirmDialogComponent,
+    AlertComponent
   ],
   imports: [
     MatCardModule,
@@ -120,7 +122,7 @@ registerLocaleData(fr);
     CustomMaterialModule
   ],
   providers: [{provide: LOCALE_ID, useValue: "fr-FR", }, DatePipe],
-  entryComponents: [ConfirmDialogComponent],
+  entryComponents: [ConfirmDialogComponent, AlertComponent],
   bootstrap: [AppComponent]
 })
 

@@ -8,7 +8,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   providedIn: 'root'
 })
 export class CompetitionService {
-  
   private contestsUrl: string;
   private contestUrl: string;
 
@@ -37,6 +36,10 @@ export class CompetitionService {
     return this.http.put<Competition>(this.contestsUrl, contest);
   }
 
+  public delete(id:number){
+    return this.http.delete(this.contestUrl+id);
+  }
+
   public goToContestList() {
     this.router.navigate(['/contests'])
   }
@@ -47,5 +50,9 @@ export class CompetitionService {
 
   goToContestDetails(contestId: number) {
     this.router.navigate(['contest/'+contestId])
+  }
+
+  goToContestUpdate(id: number) {
+    this.router.navigate(['updateContest/'+id])
   }
 }

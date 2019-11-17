@@ -3,7 +3,7 @@ import { Competition } from '../../Models/competition'
 import { CompetitionService } from '../../services/competition/competition.service'
 import {Location} from '@angular/common';
 import { FormGroup,  FormBuilder,  Validators, FormControl } from '@angular/forms';
-import { validDates } from '../validators/valid-dates.validator';
+import { validDates } from '../helpers/valid-dates.validator';
 
 @Component({
   selector: 'app-competition-form',
