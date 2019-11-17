@@ -1,6 +1,5 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from './services/auth/auth.guard';
 
 import { PlayerListComponent } from './site/player-list/player-list.component';
 import { PlayerFormComponent } from './site/player-form/player-form.component';
@@ -50,9 +49,9 @@ const routes: Routes = [
   { path: 'addevenements', component: EvenementFormComponent },
   { path: 'evenementsUpdate/:id', component:EvenementUpdateComponent},
 
-  { path: 'addcontests', component: CompetitionFormComponent },
-  { path: 'contest/:id', component: CompetitionComponent},
-  { path: 'updateContest/:id', component: CompetitionUpdateComponent},
+  // { path: 'addcontests', component: CompetitionFormComponent },
+  // { path: 'contest/:id', component: CompetitionComponent},
+  // { path: 'updateContest/:id', component: CompetitionUpdateComponent},
 
   { path: 'user', component: UserComponent}
 ];

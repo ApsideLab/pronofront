@@ -12,16 +12,19 @@ import { DatePipe } from '@angular/common';
 })
 export class CompetitionListComponent implements OnInit {
 
+
+  public config: ToasterConfig = new ToasterConfig({
+    animation: 'fade',
+    positionClass: 'toast-bottom-left'
+  });
+
   contests: Competition[];
   dataSource;
   displayedColumns = [];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  public config: ToasterConfig = new ToasterConfig({
-    animation: 'fade',
-    positionClass: 'toast-bottom-left'
-  });
-  constructor(private toasterService: ToasterService, private competitionService: CompetitionService, public datepipe: DatePipe) {
+
+  constructor(private competitionService: CompetitionService, public datepipe: DatePipe) {
     this.dataSource = new MatTableDataSource()
   }
 
@@ -56,15 +59,6 @@ export class CompetitionListComponent implements OnInit {
 
   goToContestDetails(contestId: number) {
     this.competitionService.goToContestDetails(contestId)
-  }
-
-  showError() {
-    const toast: Toast = {
-      type: 'error',
-      title: 'Erreur',
-      body: 'Identifiant ou mot de passe incorrect',
-    };
-    this.toasterService.pop(toast);
   }
 
 }

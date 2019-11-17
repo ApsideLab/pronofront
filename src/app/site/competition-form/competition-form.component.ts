@@ -4,6 +4,8 @@ import { CompetitionService } from '../../services/competition/competition.servi
 import {Location} from '@angular/common';
 import { FormGroup,  FormBuilder,  Validators, FormControl } from '@angular/forms';
 import { validDates } from '../validators/valid-dates.validator';
+import { Toast, ToasterService, ToasterConfig } from 'angular2-toaster';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-competition-form',
@@ -17,7 +19,16 @@ export class CompetitionFormComponent {
   competitionForm: FormGroup;
   error: any;
 
-  constructor(private competitionService: CompetitionService, private location: Location, private fb: FormBuilder) {
+  public config: ToasterConfig = new ToasterConfig({
+    animation: 'fade',
+    positionClass: 'toast-bottom-left'
+  });
+
+  constructor(private competitionService: CompetitionService,
+              private location: Location,
+              private fb: FormBuilder,
+              private toasterService: ToasterService,
+              private router: Router) {
     this.competition = new Competition();
     this.competitionForm = this.fb.group({
       label: new FormControl(),
@@ -37,12 +48,35 @@ export class CompetitionFormComponent {
   submit() {
     this.bindToModel();
     this.competitionService.save(this.competition).subscribe({
-      error: err => this.error = err.error.message,
-      complete: () => this.competitionService.goToContestList()
+      error: err => this.showError(err.error.message),
+      complete: () => this.navigateListContestsAndMessageSuccess()
     })
   }
 
   cancel() {
     this.location.back();
+  }
+
+  navigateListContestsAndMessageSuccess() {
+    this.router.navigate(['/contests']).then(() => {
+      this.showSuccess();
+    })
+  }
+
+  showError(message) {
+    const toast: Toast = {
+      type: 'error',
+      title: 'Erreur',
+      body: message,
+    };
+    this.toasterService.pop(toast);
+  }
+
+  showSuccess() {
+    const toast: Toast = {
+      type: 'success',
+      body: 'La compétition a été crée',
+    };
+    this.toasterService.popAsync(toast);
   }
 }

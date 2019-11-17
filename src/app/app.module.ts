@@ -67,6 +67,7 @@ import { LoginModule } from './site/login/login.module';
 
 import { ToasterModule } from 'angular2-toaster';
 import { ToasterComponentModule, ToasterComponent } from './toaster.component';
+import { httpInterceptorProviders } from './site/auth/auth-interceptor';
 
 registerLocaleData(fr);
 @NgModule({
@@ -127,7 +128,7 @@ registerLocaleData(fr);
     ToasterComponentModule,
     HttpClientModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: "fr-FR", }, DatePipe],
+  providers: [httpInterceptorProviders, {provide: LOCALE_ID, useValue: "fr-FR", }, DatePipe],
   entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })

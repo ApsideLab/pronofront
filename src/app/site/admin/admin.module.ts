@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
-import { AuthGuard } from 'src/app/services/auth/auth.guard';
+import { AuthGuard } from '../auth/auth.guard';
 
 @NgModule({
   declarations: [AdminComponent],
