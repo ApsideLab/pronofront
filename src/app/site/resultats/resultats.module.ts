@@ -4,10 +4,10 @@ import { ResultatsComponent } from './resultats.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { ClassementModule } from '../classement/classement.module';
-import { AuthGuard } from 'src/app/services/auth/auth.guard';
+import { AuthGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
-  { path: 'resultats', canActivate: [AuthGuard],component :ResultatsComponent}
+  { path: 'resultats', canActivate: [AuthGuard], component : ResultatsComponent}
 ];
 
 @NgModule({

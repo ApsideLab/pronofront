@@ -1,4 +1,4 @@
-<a routerLink="/"><h6 style="color: white">Home</h6></a>
+<!-- <a routerLink="/"><h6 style="color: white">Home</h6></a>
 <div class="container">
   <div class="row">
     <div class="col"></div>
@@ -36,4 +36,19 @@
   <div class="flex-row-center">
       <button class="material-btn-highlight" (click)="addContest()">Ajouter un concours</button>
   </div>
+</div> -->
+
+
+<div *ngIf="info.token; else loggedOut">
+  <h5 class="text-primary">Your Information</h5>
+  <p>
+    <strong>Username:</strong> {{info.username}}<br/>
+    <strong>Roles:</strong> {{info.authorities}}<br />
+    <strong>Token:</strong> {{info.token}}.
+  </p>
+  <button class="btn btn-secondary" (click)="logout()">Logout</button>
 </div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Competition } from '../../Models/competition';
 import { CompetitionService } from '../../services/competition/competition.service';
+import { ToasterConfig, ToasterService, Toast } from 'angular2-toaster';
 import { MatSort, MatTableDataSource, MatSortable, MatPaginator, MatDialog } from '@angular/material';
 import { DatePipe } from '@angular/common';
 import { ConfirmDialogModel, ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
@@ -12,6 +13,12 @@ import { AlertModel, AlertComponent } from '../alert/alert.component';
   styleUrls: ['./competition-list.component.scss']
 })
 export class CompetitionListComponent implements OnInit {
+
+
+  public config: ToasterConfig = new ToasterConfig({
+    animation: 'fade',
+    positionClass: 'toast-bottom-left'
+  });
 
   contests: Competition[];
   dataSource;

@@ -15,19 +15,17 @@ export class ScaleUpdateComponent {
     this.scale = new Scale();
   }
 
-  update(scale : Scale) {
+  update(scale: Scale) {
     this.scaleService.get(scale.id).subscribe(data => {
 
-      let day = this.scale.dateDebutValidite.toString().substring(0,2);
-      let month = this.scale.dateDebutValidite.toString().substring(3,5);
-      let year = this.scale.dateDebutValidite.toString().substring(6,10);
-  
-      this.scale.dateDebutValidite = new Date(parseInt(year), parseInt(month)-1, parseInt(day));
-  
-      day = this.scale.dateFinValidite.toString().substring(0,2);
-      month = this.scale.dateFinValidite.toString().substring(3,5);
-      year = this.scale.dateFinValidite.toString().substring(6,10);
-      this.scale.dateFinValidite = new Date(parseInt(year), parseInt(month) -1, parseInt(day));
+      let day = this.scale.dateDebutValidite.toString().substring(0, 2);
+      let month = this.scale.dateDebutValidite.toString().substring(3, 5);
+      let year = this.scale.dateDebutValidite.toString().substring(6, 10);
+      this.scale.dateDebutValidite = new Date(parseInt(year, null), parseInt(month, null) -1, parseInt(day, null));
+      day = this.scale.dateFinValidite.toString().substring(0, 2);
+      month = this.scale.dateFinValidite.toString().substring(3, 5);
+      year = this.scale.dateFinValidite.toString().substring(6, 10);
+      this.scale.dateFinValidite = new Date(parseInt(year, null), parseInt(month, null) -1, parseInt(day, null));
 
       this.scaleService.update(scale).subscribe(result => window.location.reload());
     });

@@ -1,8 +1,5 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './site/home/home.component';
-import { AuthGuard } from './services/auth/auth.guard';
-import { LoginComponent } from './site/login/login.component';
 
 import { PlayerListComponent } from './site/player-list/player-list.component';
 import { PlayerFormComponent } from './site/player-form/player-form.component';
@@ -24,32 +21,39 @@ import { CompetitionListComponent } from './site/competition-list/competition-li
 import { CompetitionFormComponent } from './site/competition-form/competition-form.component';
 import { CompetitionComponent } from './site/competition/competition.component';
 import { CompetitionUpdateComponent } from './site/competition-update/competition-update.component';
+import { UserComponent } from './site/user/user.component';
+import { RegisterComponent } from './site/register/register.component';
+import { HomeComponent } from './site/home/home.component';
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: '', component : HomeComponent,canActivate: [AuthGuard]},
+  // { path: '', component: HomeComponent },
+  // { path: '', component: HomeComponent },
+  // { path: 'login/signup', component: RegisterComponent},
+  // { path: 'signup', component: RegisterComponent},
 
-  { path: 'players',component: PlayerListComponent },
+
+  { path: 'players', component: PlayerListComponent },
   { path: 'addplayers',component: PlayerFormComponent },
  // {path: 'playersUpdate/:id', component: PlayerUpdateComponent},
 
-  { path: 'actors',component: ActorListComponent },
-  { path: 'addactors',component: ActorFormComponent },
+  { path: 'actors', component: ActorListComponent },
+  { path: 'addactors', component: ActorFormComponent },
   {path: 'actorsUpdate/:id', component: ActorUpdateComponent},
 
-  { path: 'scales',component: ScaleListComponent },
-  { path: 'addscales',component: ScaleFormComponent },
-  {path: 'scalesUpdate/:id', component:ScaleUpdateComponent},
+  { path: 'scales', component: ScaleListComponent },
+  { path: 'addscales', component: ScaleFormComponent },
+  { path: 'scalesUpdate/:id', component:ScaleUpdateComponent},
 
-  { path: 'evenements',component: EvenementListComponent },
-  { path: 'addevenements',component: EvenementFormComponent },
-  {path: 'evenementsUpdate/:id', component:EvenementUpdateComponent},
+  { path: 'evenements', component: EvenementListComponent },
+  { path: 'addevenements', component: EvenementFormComponent },
+  { path: 'evenementsUpdate/:id', component:EvenementUpdateComponent},
 
+  { path: 'user', component: UserComponent},
   { path: 'contests', component: CompetitionListComponent },
   { path: 'addcontests', component: CompetitionFormComponent },
   { path: 'contests/:id', component: CompetitionComponent},
-  { path: 'updateContest/:id', component: CompetitionUpdateComponent},
+  { path: 'updateContest/:id', component: CompetitionUpdateComponent}
 ];
 
 @NgModule({

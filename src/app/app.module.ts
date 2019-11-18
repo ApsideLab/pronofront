@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HomeModule } from './site/home/home.module';
 import { PronosticsModule } from './site/pronostics/pronostics.module';
 import { ResultatsModule } from './site/resultats/resultats.module';
 import { AdminModule } from './site/admin/admin.module';
@@ -11,7 +10,6 @@ import { ErrorsModule } from './site/errors/errors.module';
 import { SharedModule } from './site/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './site/material/material.module';
-import { LoginModule } from './site/login/login.module';
 import { CompetitionModule } from './site/competition/competition.module';
 
 import { PlayerModule } from './site/player-list/player-list.module';
@@ -61,14 +59,24 @@ import fr from '@angular/common/locales/fr';
 import { registerLocaleData, DatePipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule, MatCardModule, MatProgressSpinnerModule, MatMenuModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSortModule } from '@angular/material';
+import { UserComponent } from './site/user/user.component';
+import { RegisterComponent } from './site/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from './site/home/home.module';
+import { LoginModule } from './site/login/login.module';
 import { AlertComponent, AlertModel } from './site/alert/alert.component';
 
+import { ToasterModule } from 'angular2-toaster';
+import { ToasterComponentModule, ToasterComponent } from './toaster.component';
+import { httpInterceptorProviders } from './site/auth/auth-interceptor';
 
 registerLocaleData(fr);
 @NgModule({
   declarations: [
     AppComponent,
     ConfirmDialogComponent,
+    UserComponent,
+    RegisterComponent,
     AlertComponent
   ],
   imports: [
@@ -87,12 +95,11 @@ registerLocaleData(fr);
     MatTableModule,
     BrowserModule,
     ReactiveFormsModule,
-    LoginModule,
-
     PlayerModule,
     AddPlayerModule,
     UpdatePlayerModule,
-
+    LoginModule,
+    HomeModule,
     ActorModule,
     AddActorModule,
     UpdateActorModule,
@@ -108,20 +115,22 @@ registerLocaleData(fr);
     ContestModule,
     AddContestModule,
     UpdateContestModule,
+    CompetitionModule,
 
     SharedModule,
     MatDialogModule,
-    HomeModule,
     PronosticsModule,
     ResultatsModule,
     AdminModule,
-    CompetitionModule,
     ErrorsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    ToasterModule.forRoot(),
+    ToasterComponentModule,
+    HttpClientModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: "fr-FR", }, DatePipe],
+  providers: [httpInterceptorProviders, {provide: LOCALE_ID, useValue: "fr-FR", }, DatePipe],
   entryComponents: [ConfirmDialogComponent, AlertComponent],
   bootstrap: [AppComponent]
 })

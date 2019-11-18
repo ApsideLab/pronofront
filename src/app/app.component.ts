@@ -8,16 +8,15 @@ import { MatDialog } from '@angular/material';
 })
 export class AppComponent {
   title = 'pronoweb2';
-
-  result: string = '';
+  result = '';
 
   constructor(public dialog: MatDialog) {}
 
   confirmDialog(): void {
     const message = `Are you sure you want to do this?`;
-    const dialogData = new ConfirmDialogModel("Confirm Action", message);
+    const dialogData = new ConfirmDialogModel('Confirm Action', message);
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      maxWidth: "400px",
+      maxWidth: '400px',
       data: dialogData
     });
 

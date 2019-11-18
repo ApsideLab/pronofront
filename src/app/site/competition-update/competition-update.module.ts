@@ -15,8 +15,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     RouterModule.forChild([
       {path: 'updateContest/:id', component: CompetitionUpdateComponent},
-      {path: 'updateContest', redirectTo:'/contests'},
-      {path:'contests', component: CompetitionListComponent}
+      {path: 'updateContest', redirectTo:'/contests'}
       ])
 
   ]

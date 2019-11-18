@@ -11,31 +11,29 @@ import { environment } from '../../../environments/environment';
 export class CompetitionService {
   private baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
-  }
-
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   public addContest() {
     this.router.navigate(['/addcontests']);
   }
 
   public findAll(): Observable<Competition[]> {
-    let url = this.baseUrl + '/contests';
+    const url = this.baseUrl + '/contests';
     return this.http.get<Competition[]>(url);
   }
 
-  public get(id:number): Observable<Competition>{
-    let url = this.baseUrl + '/contests/' + id;
+  public get(id: number): Observable<Competition>{
+    const url = this.baseUrl + '/contests/' + id;
     return this.http.get<Competition>(url);
   }
 
-  public save(contest:Competition) {
-    let url = this.baseUrl + '/contests';
-    return this.http.post<Competition>(url, contest)
+  public save(contest: Competition) {
+    const url = this.baseUrl + '/contests';
+    return this.http.post<Competition>(url, contest);
   }
 
   public update(contest:Competition) {
-    let url = this.baseUrl + '/contests';
+    const url = this.baseUrl + '/contests';
     return this.http.put<Competition>(url, contest);
   }
 

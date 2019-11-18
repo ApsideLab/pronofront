@@ -1,12 +1,12 @@
 export class Scale {
   id: number;
-  label: String;
-  dateDebutValidite : Date;
-  ptsBonResultat: String;
-  ptsBonusEcartButs: String;
-  ptsBonusDeuxScoresExacts: String;
-  ptsBonusUnScoreExactResultatOK: String;
-  ptsBonusUnScoreExactResultatKO: String;
+  label: string;
+  dateDebutValidite: Date;
+  ptsBonResultat: string;
+  ptsBonusEcartButs: string;
+  ptsBonusDeuxScoresExacts: string;
+  ptsBonusUnScoreExactResultatOK: string;
+  ptsBonusUnScoreExactResultatKO: string;
   dateFinValidite: Date;
-    constructor(){}
+    constructor() { }
 }

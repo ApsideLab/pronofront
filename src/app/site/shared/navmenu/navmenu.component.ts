@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
+import { TokenStorageService } from '../../auth/token-storage.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-navmenu',
@@ -9,21 +10,22 @@ import { Router } from '@angular/router';
 })
 export class NavmenuComponent implements OnInit {
 
-  constructor( private router: Router,private authService: AuthService) { }
+  constructor(private router: Router,
+              private authService: AuthService,
+              private token: TokenStorageService) { }
 
   ngOnInit() {
   }
 
-
-  logout(){
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
+  logout() {
+    this.token.signOut();
+    window.location.reload();
   }
 
-  isAuth():boolean{
-    if (this.authService.isLoggedIn){
-      return true;
+  isAuth(): boolean {
+    if (sessionStorage.getItem('AuthToken') == null) {
+      return false;
     }
-    return false;
+    return true;
   }
 }

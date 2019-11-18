@@ -18,12 +18,12 @@ export class ScaleService {
       return this.http.get<Scale[]>(this.scalesUrl);
     }
 
-    public get(id:number): Observable<Scale>{
-      return this.http.get<Scale>(this.scalesUrl+id);
+    public get(id: number): Observable<Scale>{
+      return this.http.get<Scale>(this.scalesUrl + id);
     }
 
-    public delete(id:number){
-      return this.http.delete(this.scalesUrl+id);
+    public delete(id: number){
+      return this.http.delete(this.scalesUrl + id);
     }
 
     public save(scale: Scale) {
@@ -45,5 +45,4 @@ export class ScaleService {
     public gotoScaleSave() {
       this.router.navigate(['/addscales']);
     }
-
 }

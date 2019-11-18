@@ -15,7 +15,7 @@ export class ActorUpdateComponent {
     this.actor = new Actor();
   }
 
-  update(actor : Actor) {
+  update(actor: Actor) {
     this.actorService.get(actor.id).subscribe(data => {
       this.actorService.update(actor).subscribe(result => window.location.reload());
     });
@@ -31,7 +31,7 @@ export class ActorUpdateComponent {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = +params['id'];
+      this.id = + params['id'];
       this.actorService.get(this.id).subscribe(data =>{
         this.actor = data;
       });

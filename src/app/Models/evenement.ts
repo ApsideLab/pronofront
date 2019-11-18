@@ -1,9 +1,9 @@
 export class Evenement {
   id: number;
-  libelle:String;
-  dateEvenement:Date;
-  dateOuverture:Date;
-  dateFermeture:Date;
-  coeff:String;
-    constructor(){}
+  libelle: string;
+  dateEvenement: Date;
+  dateOuverture: Date;
+  dateFermeture: Date;
+  coeff: string;
+    constructor() { }
 }

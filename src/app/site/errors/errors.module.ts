@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ErrorsComponent } from './errors.component';
 import { RouterModule } from '@angular/router';
-import { AuthGuard } from 'src/app/services/auth/auth.guard';
+import { AuthGuard } from '../auth/auth.guard';
 
 @NgModule({
   declarations: [ErrorsComponent],

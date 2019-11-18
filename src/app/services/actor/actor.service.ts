@@ -12,32 +12,30 @@ export class ActorService {
     private actorsUrl: string;
     private baseUrl = environment.baseUrl;
 
-    constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
-      // this.actorsUrl = 'http://localhost:8086/pronos/actors/';
-    }
+    constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
     public findAll(): Observable<Actor[]> {
-      let url = this.baseUrl + '/actors/';
+      const url = this.baseUrl + '/actors/';
       return this.http.get<Actor[]>(url);
     }
 
     public get(id:number): Observable<Actor>{
-      let url = this.baseUrl + '/actors/' + id;
+      const url = this.baseUrl + '/actors/' + id;
       return this.http.get<Actor>(url);
     }
 
     public delete(id:number){
-      let url = this.baseUrl + '/actors/' + id;
+      const url = this.baseUrl + '/actors/' + id;
       return this.http.delete(url);
     }
 
     public save(actor: Actor) {
-      let url = this.baseUrl + '/actors/';
+      const url = this.baseUrl + '/actors/';
       return this.http.post<Actor>(url, actor);
     }
 
     public update(actor: Actor) {
-      let url = this.baseUrl + '/actors/';
+      const url = this.baseUrl + '/actors/';
       return this.http.put<Actor>(url, actor);
     }
 
@@ -52,5 +50,4 @@ export class ActorService {
     public gotoActorSave() {
       this.router.navigate(['/addactors']);
     }
-
 }
