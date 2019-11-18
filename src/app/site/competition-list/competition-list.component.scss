@@ -17,16 +17,12 @@
     font-size: 30px;
 }
 
-mat-cell > a:nth-child(1) > mat-icon {
+mat-cell > mat-icon:first-child {
     color: rgb(54, 202, 3);
 }
 
-mat-cell > a:nth-child(2) > mat-icon {
+mat-cell > mat-icon:last-child {
     color: #FF493B;
-}
-
-mat-row > mat-cell:nth-child(1) > a {
-    color: #333333;
 }
 
 mat-table {

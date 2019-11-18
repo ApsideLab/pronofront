@@ -49,11 +49,11 @@ const routes: Routes = [
   { path: 'addevenements', component: EvenementFormComponent },
   { path: 'evenementsUpdate/:id', component:EvenementUpdateComponent},
 
-  // { path: 'addcontests', component: CompetitionFormComponent },
-  // { path: 'contest/:id', component: CompetitionComponent},
-  // { path: 'updateContest/:id', component: CompetitionUpdateComponent},
-
-  { path: 'user', component: UserComponent}
+  { path: 'user', component: UserComponent},
+  { path: 'contests', component: CompetitionListComponent },
+  { path: 'addcontests', component: CompetitionFormComponent },
+  { path: 'contests/:id', component: CompetitionComponent},
+  { path: 'updateContest/:id', component: CompetitionUpdateComponent}
 ];
 
 @NgModule({

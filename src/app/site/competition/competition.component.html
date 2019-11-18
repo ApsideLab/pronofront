@@ -8,7 +8,11 @@
           <p><span>Du</span> {{competition.startDate | date:'shortDate'}} à {{ competition.startDate | date:'shortTime' }} <span>au</span> {{competition.endDate | date:'shortDate'}} à {{ competition.endDate | date:'shortTime' }}</p>
         </div>
         <div class="custom-card-row">
-          <button class="material-btn-highlight">Modifier</button>
+          <p class="error">{{error}}</p>
+        </div>
+        <div class="custom-card-row">
+          <button class="material-btn-highlight" (click)="goToContestUpdate()">Modifier</button>
+          <button class="material-btn-delete" (click)="openDialog()">Supprimer</button>
           <button class="material-btn-cancel" (click)="goToList()">Retour</button>
         </div>
       </form>

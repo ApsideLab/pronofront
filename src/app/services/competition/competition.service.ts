@@ -23,7 +23,7 @@ export class CompetitionService {
   }
 
   public get(id: number): Observable<Competition>{
-    const url = this.baseUrl + '/contest/' + id;
+    const url = this.baseUrl + '/contests/' + id;
     return this.http.get<Competition>(url);
   }
 
@@ -37,6 +37,10 @@ export class CompetitionService {
     return this.http.put<Competition>(url, contest);
   }
 
+  public delete(id:number){
+    return this.http.delete(this.contestsUrl+id);
+  }
+
   public goToContestList() {
     this.router.navigate(['/contests']);
   }
@@ -46,6 +50,10 @@ export class CompetitionService {
   }
 
   goToContestDetails(contestId: number) {
-    this.router.navigate(['contest/'+ contestId])
+    this.router.navigate(['contests/' + contestId])
+  }
+
+  goToContestUpdate(id: number) {
+    this.router.navigate(['updateContest/'+id])
   }
 }

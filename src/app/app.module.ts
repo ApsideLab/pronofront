@@ -64,6 +64,7 @@ import { RegisterComponent } from './site/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './site/home/home.module';
 import { LoginModule } from './site/login/login.module';
+import { AlertComponent, AlertModel } from './site/alert/alert.component';
 
 import { ToasterModule } from 'angular2-toaster';
 import { ToasterComponentModule, ToasterComponent } from './toaster.component';
@@ -75,7 +76,8 @@ registerLocaleData(fr);
     AppComponent,
     ConfirmDialogComponent,
     UserComponent,
-    RegisterComponent
+    RegisterComponent,
+    AlertComponent
   ],
   imports: [
     MatCardModule,
@@ -129,7 +131,7 @@ registerLocaleData(fr);
     HttpClientModule
   ],
   providers: [httpInterceptorProviders, {provide: LOCALE_ID, useValue: "fr-FR", }, DatePipe],
-  entryComponents: [ConfirmDialogComponent],
+  entryComponents: [ConfirmDialogComponent, AlertComponent],
   bootstrap: [AppComponent]
 })
 
