@@ -1,25 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CompetitionComponent } from './competition.component';
-import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
-
+import { CompetitionUpdateComponent } from './competition-update.component';
 import { CompetitionListComponent } from '../competition-list/competition-list.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [CompetitionComponent],
+  declarations: [CompetitionUpdateComponent],
   imports: [
     CommonModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      {path: 'contests/:id', component: CompetitionComponent},
-      //{path: 'contest', redirectTo:'/contests'},
+      {path: 'updateContest/:id', component: CompetitionUpdateComponent},
+      {path: 'updateContest', redirectTo:'/contests'},
       {path:'contests', component: CompetitionListComponent}
       ])
+
   ]
 })
-export class CompetitionModule { }
+
+export class UpdateContestModule {
+}

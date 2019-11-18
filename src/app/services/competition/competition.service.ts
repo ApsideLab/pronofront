@@ -34,11 +34,27 @@ export class CompetitionService {
     return this.http.post<Competition>(url, contest)
   }
 
+  public update(contest:Competition) {
+    return this.http.put<Competition>(this.contestsUrl, contest);
+  }
+
+  public delete(id:number){
+    return this.http.delete(this.contestsUrl+id);
+  }
+
   public goToContestList() {
     this.router.navigate(['/contests'])
   }
 
   public goToHome() {
     this.router.navigate(['/'])
+  }
+
+  goToContestDetails(contestId: number) {
+    this.router.navigate(['contests/'+contestId])
+  }
+
+  goToContestUpdate(id: number) {
+    this.router.navigate(['updateContest/'+id])
   }
 }

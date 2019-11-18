@@ -1,3 +1,35 @@
-<p>
-  competition-list works!
-</p>
+<div>
+  <div class="custom-card contest">
+    <div class="custom-card-title">
+      <h1>Compétitions <a href="/addcontests"><mat-icon class="mat-icon notranslate material-icons mat-icon-no-color add-icon" role="img" aria-hidden="true">add</mat-icon></a></h1>
+    </div>
+    <div class="custom-card-body">
+      <mat-table #table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="label">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Nom</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element['label']}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="{{column.id}}" *ngFor="let column of columnNames">
+          <mat-header-cell *matHeaderCellDef> {{column.value}} </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element[column.id]}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="admin">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <mat-icon matTooltip="Modifier cette compétition" (click)="goToContestUpdate(element.id); $event.stopPropagation()" class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">edit</mat-icon>
+              <mat-icon matTooltip="Supprimer cette compétition" (click)="openDialog(element.id); $event.stopPropagation()" class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">cancel</mat-icon>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="goToContestDetails(row.id)"></mat-row>
+      </mat-table>
+
+      <mat-paginator [pageSizeOptions]="[10, 25, 100]">
+
+      </mat-paginator>
+    </div>
+  </div>
+</div>

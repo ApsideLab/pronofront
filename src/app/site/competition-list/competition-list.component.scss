@@ -1,0 +1,51 @@
+.material-icons:not(.add-icon) {
+    font-size: 35px;
+}
+
+.mat-icon:not(.add-icon) {
+    width: 35px;
+    height: 35px;
+}
+
+.add-icon {
+    width: 30px;
+    height: 30px;
+    color: #36CA03;
+}
+
+.add-icon.material-icons {
+    font-size: 30px;
+}
+
+mat-cell > mat-icon:first-child {
+    color: rgb(54, 202, 3);
+}
+
+mat-cell > mat-icon:last-child {
+    color: #FF493B;
+}
+
+mat-table {
+    width: 100%;
+}
+
+.mat-column-admin {
+    width: 10%!important;
+    flex: 0 0 10% !important;
+    padding-right: 0;
+}
+
+.mat-column-admin {
+    padding-left: 0;
+}
+
+h1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+h1 > a {
+    margin-left: 10px;
+    line-height: 10px;
+}

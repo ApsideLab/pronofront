@@ -3,7 +3,7 @@ import { Competition } from '../../Models/competition'
 import { CompetitionService } from '../../services/competition/competition.service'
 import {Location} from '@angular/common';
 import { FormGroup,  FormBuilder,  Validators, FormControl } from '@angular/forms';
-import { validDates } from '../validators/valid-dates.validator';
+import { validDates } from '../helpers/valid-dates.validator';
 
 @Component({
   selector: 'app-competition-form',
@@ -37,7 +37,6 @@ export class CompetitionFormComponent {
 
   submit() {
     this.bindToModel();
-    // this.competitionService.save(this.competition).subscribe(result => this.competitionService.goToContestList())
     this.competitionService.save(this.competition).subscribe({
       error: err => this.error = err.error.message,
       complete: () => this.competitionService.goToContestList()
