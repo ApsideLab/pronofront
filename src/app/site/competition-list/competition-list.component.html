@@ -8,7 +8,7 @@
         <ng-container matColumnDef="label">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Nom</mat-header-cell>
           <mat-cell *matCellDef="let element">
-            {{element['label']}}>
+            {{element['label']}}
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="{{column.id}}" *ngFor="let column of columnNames">
