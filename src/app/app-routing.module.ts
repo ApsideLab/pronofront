@@ -48,7 +48,7 @@ const routes: Routes = [
 
   { path: 'contests', component: CompetitionListComponent },
   { path: 'addcontests', component: CompetitionFormComponent },
-  { path: 'contest/:id', component: CompetitionComponent},
+  { path: 'contests/:id', component: CompetitionComponent},
   { path: 'updateContest/:id', component: CompetitionUpdateComponent},
 ];
 

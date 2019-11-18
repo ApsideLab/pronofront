@@ -13,7 +13,6 @@ export class CompetitionService {
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { 
     this.contestsUrl = 'http://localhost:8086/pronos/contests/';
-    this.contestUrl = 'http://localhost:8086/pronos/contest/';
   }
   
   public findAll(): Observable<Competition[]> {
@@ -25,7 +24,7 @@ export class CompetitionService {
   }
 
   public get(id:number): Observable<Competition>{
-    return this.http.get<Competition>(this.contestUrl+id);
+    return this.http.get<Competition>(this.contestsUrl+id);
   }
 
   public save(contest:Competition) {
@@ -37,7 +36,7 @@ export class CompetitionService {
   }
 
   public delete(id:number){
-    return this.http.delete(this.contestUrl+id);
+    return this.http.delete(this.contestsUrl+id);
   }
 
   public goToContestList() {
@@ -49,7 +48,7 @@ export class CompetitionService {
   }
 
   goToContestDetails(contestId: number) {
-    this.router.navigate(['contest/'+contestId])
+    this.router.navigate(['contests/'+contestId])
   }
 
   goToContestUpdate(id: number) {
