@@ -1,42 +1,46 @@
-<div class="card my-5">
-  <h3>Ajout d'une nouvelle équipe</h3>
-  <div class="card-body">
-    <form (ngSubmit)="onSubmit()" #scaleForm="ngForm">
-      <div class="form-group">
-        <label for="label">Barème</label>
-        <input type="text" [(ngModel)]="scale.label"
-            class="form-control" id="label" name="label" placeholder="Veuillez indiquer le nom du barèmes"
-            required #label="ngModel">
-            <br>
-        <input type="text" [(ngModel)]="scale.dateDebutValidite"
-            class="form-control" id="dateDebutValidite" name="dateDebutValidite" placeholder="Veuillez indiquer la date de début de validité"
-            required #dateDebutValidite="ngModel">
-        <br>
-        <input type="text" [(ngModel)]="scale.ptsBonResultat"
-            class="form-control" id="ptsBonRésultat" name="ptsBonResultat" placeholder="Veuillez indiquer les points pour un bon résultat"
-            required #ptsBonResultat="ngModel">
-            <br>
-        <input type="text" [(ngModel)]="scale.ptsBonusEcartButs"
-            class="form-control" id="ptsBonusEcartButs" name="ptsBonusEcartButs" placeholder="Veuillez indiquer les points bonus pour les écarts de buts"
-            required #ptsBonusEcartButs="ngModel">
-            <br>
-        <input type="text" [(ngModel)]="scale.ptsBonusDeuxScoresExacts"
-            class="form-control" id="ptsBonusDeuxScoresExacts" name="ptsBonusDeuxScoresExacts" placeholder="Veuillez indiquer les points bonus pour deux scores exactes"
-            required #ptsBonusDeuxScoresExacts="ngModel">
-            <br>
-        <input type="text" [(ngModel)]="scale.ptsBonusUnScoreExactResultatOK"
-            class="form-control" id="ptsBonusUnScoreExactResultatOK" name="ptsBonusUnScoreExactResultatOK" placeholder="Veuillez indiquer les points bonus pour un score exacte ok"
-            required #ptsBonusUnScoreExactResultatOK="ngModel">
-            <br>
-        <input type="text" [(ngModel)]="scale.ptsBonusUnScoreExactResultatKO"
-            class="form-control" id="ptsBonusUnScoreExactResultatKO" name="ptsBonusUnScoreExactResultatKO" placeholder="Veuillez indiquer les points bonus pour un score exacte ko"
-            required #ptsBonusUnScoreExactResultatOK="ngModel">
-            <br>
-        <input type="text" [(ngModel)]="scale.dateFinValidite"
-            class="form-control" id="dateFinValidite" name="dateFinValidite" placeholder="Veuillez indiquer la date de fin de validité"
-            required #dateFinValidite="ngModel">
+<div>
+  <div class="custom-card scale">
+    <div class="custom-card-title">
+      <h1>Créer un barème</h1>
+    </div>
+    <form class="custom-card-body" [formGroup]="scaleForm" (ngSubmit)="submit()">
+      <div class="custom-card-row">
+        <input type="text" name="scaleName" placeholder="Nom du barème" formControlName="label" required class="form-control">
       </div>
-      <button type="submit" [disabled]="!scaleForm.form.valid" class="btn btn-info">Valider</button>
+      <div class="custom-card-row">
+        <div class="custom-card-column">
+          <div class="form-row">
+            <label for="ptsBonResultat">Points pour bon résultat : </label>
+            <input type="text" pattern="^\d+$" name="ptsBonResultat" formControlName="ptsBonResultat" required class="form-control">
+          </div>
+          <div class="form-row">
+            <label for="ptsNbButs">Points pour bon nombre de buts : </label>
+            <input type="text" pattern="^\d+$" name="ptsNbButs" formControlName="ptsNbButs" required class="form-control">
+          </div>
+          <div class="form-row">
+            <label for="ptsVainqueurFinal">Points pour bon vainqueur final : </label>
+            <input type="text" pattern="^\d+$" name="ptsVainqueurFinal" formControlName="ptsVainqueurFinal" required class="form-control">
+          </div>
+        </div>
+        <div class="headerdivider"></div>
+        <div class="custom-card-column">
+          <div class="form-row">
+            <label for="ptsPatator">Points Patator : </label>
+            <input type="text" pattern="^\d+$" name="ptsPatator" formControlName="ptsPatator" required class="form-control">
+          </div>
+          <div class="form-row">
+            <label for="ptsPunchingball">Points Punching Ball : </label>
+            <input type="text" pattern="^\d+$" name="ptsPunchingball" formControlName="ptsPunchingball" required class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="custom-card-row" *ngIf="error != null">
+        <p class="error">{{error}}</p>
+      </div>
+      <div class="custom-card-row button-row">
+        <input type="submit" name="submitBtn" value="Créer" class="material-btn-highlight" [disabled]="!scaleForm.valid">
+        <input type="button" name="cancelBtn" value="Annuler" class="material-btn-cancel" (click)="cancel()">
+      </div>
     </form>
   </div>
 </div>

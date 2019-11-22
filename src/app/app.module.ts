@@ -36,7 +36,6 @@ import { AddScaleModule } from './site/scale-form/scale-form.module';
 import { UpdateScaleModule } from './site/scale-update/scale-update.module';
 
 import { ScaleListComponent } from './site/scale-list/scale-list.component';
-import { ScaleFormComponent } from './site/scale-form/scale-form.component';
 import { ScaleUpdateComponent } from './site/scale-update/scale-update.component';
 
 
@@ -69,7 +68,7 @@ registerLocaleData(fr);
   declarations: [
     AppComponent,
     ConfirmDialogComponent,
-    AlertComponent
+    AlertComponent,
   ],
   imports: [
     MatCardModule,
