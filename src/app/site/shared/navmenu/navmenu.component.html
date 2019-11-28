@@ -45,20 +45,36 @@
         <div class="panel panel-dark ">
             <nav class="navbar navbar-expand-sm  navbar-dark">
                 <ul class="navbar-nav" id="conn">
-                    <li class="nav-item" >
+                    <li *ngIf="!isAuth(); else loggedOut" class="nav-item" >
                       <a class="nav-link text-white" title="login" routerLink="login">
                         <mat-icon>account_circle</mat-icon>
                       </a>
                     </li>
-                    <li class="nav-item ">
-                        <button style="height:35px" mat-button (click)="logout()" class="nav-link text-white" title="déconnexion">
-                          <mat-icon style="height:20px">exit_to_app</mat-icon>
-                        </button>
-                    </li>
+                    <ng-template #loggedOut>
+                      <li class="nav-item ">
+                          <button style="height:35px" mat-button (click)="logout()" class="nav-link text-white" title="déconnexion">
+                            <mat-icon style="height:20px">exit_to_app</mat-icon>
+                          </button>
+                      </li>
+                    </ng-template>
                 </ul>
             </nav>
         </div>
     </div>
   </div>
 
+
+  <!-- <div *ngIf="info.token; else loggedOut">
+  <h5 class="text-primary">Your Information</h5>
+  <p>
+    <strong>Username:</strong> {{info.username}}<br/>
+    <strong>Roles:</strong> {{info.authorities}}<br />
+    <strong>Token:</strong> {{info.token}}.
+  </p>
+  <button class="btn btn-secondary" (click)="logout()">Logout</button>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template> -->
 </div>

@@ -18,12 +18,12 @@ export class PlayerService {
       return this.http.get<Player[]>(this.playersUrl);
     }
 
-    public get(id:number): Observable<Player>{
-      return this.http.get<Player>(this.playersUrl+id);
+    public get(id: number): Observable<Player>{
+      return this.http.get<Player>(this.playersUrl + id);
     }
-    
-    public delete(id:number){
-      return this.http.delete(this.playersUrl+id);
+
+    public delete(id: number){
+      return this.http.delete(this.playersUrl + id);
     }
 
     public save(player: Player) {
@@ -46,5 +46,4 @@ export class PlayerService {
     public gotoPlayerSave() {
       this.router.navigate(['/addplayers']);
     }
-
 }

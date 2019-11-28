@@ -1,5 +1,5 @@
 export class Actor {
   id: number;
-  label: String;
-      constructor(){}
+  label: string;
+      constructor() { }
 }

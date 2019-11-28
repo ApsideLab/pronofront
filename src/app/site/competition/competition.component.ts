@@ -26,7 +26,7 @@ export class CompetitionComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = +params['id'];
+      this.id = + params['id'];
       this.competitionService.get(this.id).subscribe(data =>{
         this.competition = data;
       }, error => {
