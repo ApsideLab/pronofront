@@ -15,3 +15,19 @@ button:first-child {
 button:last-child {
     margin-left: 5px;
 }
+
+h1 {
+    display: inline-block;
+}
+
+div > a {
+    color: #36CA03;
+    margin-left: 15px;
+}
+
+.add-icon.material-icons {
+    font-size: 30px;
+    vertical-align: top;
+    line-height: 0.8;
+    margin-right: 7px;
+}

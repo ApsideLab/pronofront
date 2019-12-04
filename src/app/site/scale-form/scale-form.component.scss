@@ -1,0 +1,24 @@
+.custom-card-column {
+    width: 30%;
+    margin: 20px;
+}
+
+label {
+    width: 89%;
+}
+
+input:not([name='scaleName']):not([name='submitBtn']):not([name='cancelBtn']) {
+    width: 11%;
+}
+
+form > div:nth-child(2) {
+    justify-content: center;
+}
+
+.form-row {
+    margin-bottom: 10px!important;
+}
+
+.custom-card-row:nth-child(2) {
+    margin: 20px 0;
+}

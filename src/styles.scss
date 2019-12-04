@@ -329,6 +329,22 @@ body {
     margin-top: 40px;
 }
 
+.custom-card-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-card-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    margin: 0!important;
+}
+
 .custom-card-title {
     background-color: #F8F9FD;
     padding: 10px 20px;
@@ -423,4 +439,14 @@ mat-row:nth-child(2) mat-cell {
 
 app-confirm-dialog > div.mat-dialog-actions > button.mat-raised-button.mat-primary, app-alert > div.mat-dialog-actions > button {
     background-color: rgb(54, 202, 3)!important;
+}
+
+.headerdivider {
+    border-left: 1px solid #ced4da;
+    width: 1px;
+    height: inherit;
+}
+
+input::placeholder {
+    font-style: italic;
 }
