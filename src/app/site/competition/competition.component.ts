@@ -1,10 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Competition } from 'src/app/Models/competition';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CompetitionService } from '../../services/competition/competition.service';
+import { UsersService } from '../../services/users/users.service';
 import * as moment from 'moment';
 import { ConfirmDialogModel, ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
+import { Scale } from 'src/app/Models/scale';
+import { ScaleService } from 'src/app/services/scale/scale.service';
+import { User } from 'src/app/Models/user';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-competition',
@@ -19,9 +24,36 @@ export class CompetitionComponent implements OnInit {
   endDay: String;
   endTime: String;
   error: any;
+  panelOpenState = false;
+  user: any;
 
-  constructor(private competitionService: CompetitionService, private route: ActivatedRoute, public dialog: MatDialog, private router: Router) { 
+  scales: Scale[];
+  dataSource;
+  displayedColumns = [];
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  columnNames = [{
+    id: "ptsBonResultat",
+    value: "Points en cas de bon résultat"
+  },{
+    id: "ptsNbButs",
+    value: "Points pour le nb de buts exact d'une équipe"
+  },{
+    id: "ptsPunchingball",
+    value: "Points pour le punching ball"
+  },{
+    id: "ptsPatator",
+    value: "Points pour le patator"
+  },{
+    id: "ptsVainqueurFinal",
+    value: "Points pour le vainqueur final"
+  }]
+
+
+  constructor(private token: TokenStorageService, private competitionService: CompetitionService, private scaleService: ScaleService, private route: ActivatedRoute, public dialog: MatDialog, private router: Router) { 
     this.competition = new Competition();
+    this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit() {
@@ -35,6 +67,25 @@ export class CompetitionComponent implements OnInit {
         }
       });
     });
+
+    this.user = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
+
+    this.competitionService.findAllScalesByContest(this.id).subscribe(data => {
+      this.scales = data;
+      this.displayedColumns = this.columnNames.map(x => x.id);
+      this.displayedColumns.splice(0, 0, 'label');
+      this.displayedColumns.push('admin');
+      this.createTable();
+    });
+  }
+
+  createTable() {
+    this.dataSource = new MatTableDataSource(this.scales);
+    this.dataSource.paginator = this.paginator;
   }
 
   goToContestUpdate() {
@@ -66,6 +117,11 @@ export class CompetitionComponent implements OnInit {
       error: err => this.error = err.error.message,
       complete: () => this.competitionService.goToContestList()
     })
+  }
+
+  consoleLog(scaleId: number) {
+    console.log(scaleId);
+    console.log(this.scales);
   }
 
 }

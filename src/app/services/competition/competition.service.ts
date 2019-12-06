@@ -4,6 +4,7 @@ import { Competition } from '../../Models/competition';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
+import { Scale } from 'src/app/Models/scale';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,11 @@ export class CompetitionService {
 
   public goToHome() {
     this.router.navigate(['/']);
+  }
+
+  public findAllScalesByContest(id:number):Observable<Scale[]> {
+    const url = this.baseUrl + '/contests/' + id + '/scales';
+    return this.http.get<Scale[]>(url);
   }
 
   goToContestDetails(contestId: number) {

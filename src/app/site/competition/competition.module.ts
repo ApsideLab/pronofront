@@ -6,6 +6,9 @@ import { MaterialModule } from '../material/material.module';
 
 import { CompetitionListComponent } from '../competition-list/competition-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatSortModule, MatTableModule, MatPaginatorModule, MatPaginatorIntl, MatTooltipModule } from '@angular/material';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -15,6 +18,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    MatExpansionModule,
+    MatSortModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
     RouterModule.forChild([
       {path: 'contests/:id', component: CompetitionComponent},
       //{path: 'contest', redirectTo:'/contests'},

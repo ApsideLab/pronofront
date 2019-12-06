@@ -1,7 +1,7 @@
 <div>
     <div class="custom-card contest">
       <div class="custom-card-title">
-        <h1>{{competition.label}}</h1><a [routerLink]="['/addscales']" [state]="{contestId: competition.id}"><mat-icon class="mat-icon notranslate material-icons mat-icon-no-color add-icon" role="img" aria-hidden="true">add</mat-icon>Créer un barème</a>
+        <h1>{{competition.label}}</h1><a *ngIf="user.authorities.includes('ROLE_ADMIN')" [routerLink]="['/addscales']" [state]="{contestId: competition.id}"><mat-icon class="mat-icon notranslate material-icons mat-icon-no-color add-icon" role="img" aria-hidden="true">add</mat-icon>Créer un barème</a>
       </div>
       <form class="custom-card-body" #competitionForm="ngForm">
         <div class="custom-card-row">
@@ -17,4 +17,38 @@
         </div>
       </form>
     </div>
+    <mat-accordion *ngIf="user.authorities.includes('ROLE_ADMIN')">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Barèmes
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        
+        <mat-table #table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="label">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Nom</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element['label']}}
+            </mat-cell>    
+          </ng-container>
+          <ng-container matColumnDef="{{column.id}}" *ngFor="let column of columnNames">
+            <mat-header-cell *matHeaderCellDef> {{column.value}} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element[column.id]}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="admin">
+              <mat-header-cell *matHeaderCellDef></mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <mat-icon matTooltip="Modifier ce barème" (click)="goToScaleUpdate(element.id); $event.stopPropagation()" class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">edit</mat-icon>
+                <mat-icon matTooltip="Supprimer ce barème" (click)="openDialog(element.id); $event.stopPropagation()" class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">cancel</mat-icon>
+                <mat-checkbox matTooltip="Activer/Désactiver ce barème" [checked]="element.active" (click)="$event.stopPropagation()"></mat-checkbox>
+              </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="goToScaleDetails(row.id)" [ngClass]="{'activeScale': row.active}"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+      </mat-expansion-panel>
+    </mat-accordion>
   </div>
